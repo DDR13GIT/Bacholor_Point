@@ -92,7 +92,7 @@ public class signIN extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Login Password");
+        jLabel5.setText("Password");
 
         jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
