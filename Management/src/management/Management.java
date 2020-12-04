@@ -15,7 +15,8 @@ public class Management {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        signIN sg = new signIN();
+        sg.setVisible(true);
     }
     
 }
