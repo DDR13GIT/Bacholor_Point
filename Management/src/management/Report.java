@@ -11,7 +11,7 @@ import java.awt.Color;
  *
  * @author Hello iT
  */
-public class Report extends javax.swing.JFrame {
+public class Report extends javax.swing.JFrame implements frame {
 
     /**
      * Creates new form Report
@@ -64,6 +64,9 @@ public class Report extends javax.swing.JFrame {
         hover1.setBackground(new java.awt.Color(255, 255, 255));
         hover1.setForeground(new java.awt.Color(240, 240, 240));
         hover1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hover1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 hover1MouseEntered(evt);
             }
@@ -500,6 +503,13 @@ public class Report extends javax.swing.JFrame {
          indicator2.setBackground(new Color(255, 255, 255));
         hover1.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_hover1MouseExited
+
+    private void hover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover1MouseClicked
+         // TODO add your handling code here:
+         d1.setVisible(true);
+         this.dispose();
+        
+    }//GEN-LAST:event_hover1MouseClicked
 
     /**
      * @param args the command line arguments

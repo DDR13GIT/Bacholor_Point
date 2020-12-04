@@ -11,13 +11,14 @@ import java.awt.Color;
  *
  * @author Hello iT
  */
-public class Dashboard extends javax.swing.JFrame {
+public class Dashboard extends javax.swing.JFrame implements frame{
 
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        
     }
 
     /**

@@ -225,6 +225,7 @@ public class signIN extends javax.swing.JFrame {
     private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
         Dashboard d1 = new Dashboard();
         d1.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_buttonMouseClicked
 
     /**

@@ -9,21 +9,9 @@ package management;
  *
  * @author Hello iT
  */
-public class Management {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        signIN sg = new signIN();
-        sg.setVisible(true);
-       
-          
-        Dashboard d1 = new Dashboard();
+public interface frame {
+       Dashboard d1 = new Dashboard();
         Report r1 = new Report();
         createAc ca1 = new createAc();
         About ab1 = new About();
-        
-    }
-    
 }
