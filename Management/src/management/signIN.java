@@ -127,6 +127,9 @@ public class signIN extends javax.swing.JFrame {
 
         button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management/login_defaultState.png"))); // NOI18N
         button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 buttonMouseEntered(evt);
             }
@@ -218,6 +221,11 @@ public class signIN extends javax.swing.JFrame {
          ImageIcon i = new ImageIcon(getClass().getResource("login_defaultState.png"));
         button.setIcon(i);
     }//GEN-LAST:event_buttonMouseExited
+
+    private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
+        Dashboard d1 = new Dashboard();
+        d1.setVisible(true);
+    }//GEN-LAST:event_buttonMouseClicked
 
     /**
      * @param args the command line arguments

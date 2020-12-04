@@ -11,12 +11,12 @@ import java.awt.Color;
  *
  * @author Hello iT
  */
-public class Dashboard extends javax.swing.JFrame {
+public class About extends javax.swing.JFrame {
 
     /**
-     * Creates new form Dashboard
+     * Creates new form about
      */
-    public Dashboard() {
+    public About() {
         initComponents();
     }
 
@@ -46,26 +46,25 @@ public class Dashboard extends javax.swing.JFrame {
         hover5 = new javax.swing.JPanel();
         about = new javax.swing.JLabel();
         indicator6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
 
-        jPanel4.setBackground(new java.awt.Color(247, 240, 241));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        hover1.setBackground(new java.awt.Color(1, 122, 255));
+        hover1.setBackground(new java.awt.Color(255, 255, 255));
+        hover1.setForeground(new java.awt.Color(240, 240, 240));
 
+        dash.setBackground(new java.awt.Color(0, 0, 0));
         dash.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        dash.setForeground(new java.awt.Color(240, 240, 240));
         dash.setText("Dashboard");
-
-        indicator2.setBackground(new java.awt.Color(0, 97, 204));
 
         javax.swing.GroupLayout indicator2Layout = new javax.swing.GroupLayout(indicator2);
         indicator2.setLayout(indicator2Layout);
@@ -85,7 +84,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(hover1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(dash)
-                .addGap(0, 129, Short.MAX_VALUE))
+                .addGap(0, 123, Short.MAX_VALUE))
             .addGroup(hover1Layout.createSequentialGroup()
                 .addComponent(indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(225, 225, 225))
@@ -189,11 +188,8 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover4.setBackground(new java.awt.Color(255, 255, 255));
+        hover4.setBackground(java.awt.Color.white);
         hover4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                hover4MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 hover4MouseEntered(evt);
             }
@@ -205,7 +201,7 @@ public class Dashboard extends javax.swing.JFrame {
         report.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         report.setText("Report");
 
-        indicator5.setBackground(new java.awt.Color(255, 255, 255));
+        indicator5.setBackground(java.awt.Color.white);
 
         javax.swing.GroupLayout indicator5Layout = new javax.swing.GroupLayout(indicator5);
         indicator5.setLayout(indicator5Layout);
@@ -237,7 +233,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover5.setBackground(new java.awt.Color(255, 255, 255));
+        hover5.setBackground(new java.awt.Color(1, 122, 255));
         hover5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 hover5MouseEntered(evt);
@@ -248,9 +244,10 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         about.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        about.setForeground(new java.awt.Color(255, 255, 255));
         about.setText("About Us");
 
-        indicator6.setBackground(new java.awt.Color(255, 255, 255));
+        indicator6.setBackground(new java.awt.Color(0, 97, 204));
 
         javax.swing.GroupLayout indicator6Layout = new javax.swing.GroupLayout(indicator6);
         indicator6.setLayout(indicator6Layout);
@@ -308,41 +305,36 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management/deb.png"))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(247, 240, 241));
-
-        jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel2.setText("Debopriya Deb Roy");
-
-        jLabel5.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel5.setText("Dhaka,Bangladesh");
-
-        jLabel6.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel6.setText("CSE,AUST");
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel4.setText("Bug Report: https://github.com/avishek202/Becholor_Point/issues");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(88, 88, 88)
+                .addComponent(jLabel4)
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addComponent(jLabel4)
+                .addGap(0, 711, Short.MAX_VALUE))
         );
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(1, 122, 255));
+        jLabel2.setText("About Us");
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel1.setText("Github: https://github.com/DDR13GIT/Becholor_Point ");
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel3.setText("Developers: Arittra Das & Debopriya Deb Roy");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -355,17 +347,24 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(jLabel1)))
-                .addContainerGap(1841, Short.MAX_VALUE))
+                        .addGap(95, 95, 95)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))))
+                .addContainerGap(1481, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(99, 99, 99)
+                .addComponent(jLabel2)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(335, Short.MAX_VALUE))
         );
@@ -374,13 +373,13 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -449,11 +448,6 @@ public class Dashboard extends javax.swing.JFrame {
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_hover2MouseEntered
 
-    private void hover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover4MouseClicked
-            Report r1 = new Report();
-            r1.setVisible(true);
-    }//GEN-LAST:event_hover4MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -484,7 +478,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new About().setVisible(true);
             }
         });
     }
@@ -506,8 +500,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel indicator6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

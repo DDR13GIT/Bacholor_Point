@@ -11,12 +11,12 @@ import java.awt.Color;
  *
  * @author Hello iT
  */
-public class Dashboard extends javax.swing.JFrame {
+public class Report extends javax.swing.JFrame {
 
     /**
-     * Creates new form Dashboard
+     * Creates new form Report
      */
-    public Dashboard() {
+    public Report() {
         initComponents();
     }
 
@@ -46,26 +46,35 @@ public class Dashboard extends javax.swing.JFrame {
         hover5 = new javax.swing.JPanel();
         about = new javax.swing.JLabel();
         indicator6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
 
-        jPanel4.setBackground(new java.awt.Color(247, 240, 241));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        hover1.setBackground(new java.awt.Color(1, 122, 255));
+        hover1.setBackground(new java.awt.Color(255, 255, 255));
+        hover1.setForeground(new java.awt.Color(240, 240, 240));
+        hover1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hover1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hover1MouseExited(evt);
+            }
+        });
 
+        dash.setBackground(new java.awt.Color(0, 0, 0));
         dash.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        dash.setForeground(new java.awt.Color(240, 240, 240));
         dash.setText("Dashboard");
-
-        indicator2.setBackground(new java.awt.Color(0, 97, 204));
 
         javax.swing.GroupLayout indicator2Layout = new javax.swing.GroupLayout(indicator2);
         indicator2.setLayout(indicator2Layout);
@@ -85,7 +94,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(hover1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(dash)
-                .addGap(0, 129, Short.MAX_VALUE))
+                .addGap(0, 123, Short.MAX_VALUE))
             .addGroup(hover1Layout.createSequentialGroup()
                 .addComponent(indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(225, 225, 225))
@@ -189,11 +198,8 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover4.setBackground(new java.awt.Color(255, 255, 255));
+        hover4.setBackground(new java.awt.Color(1, 122, 255));
         hover4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                hover4MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 hover4MouseEntered(evt);
             }
@@ -203,9 +209,10 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         report.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        report.setForeground(new java.awt.Color(240, 240, 240));
         report.setText("Report");
 
-        indicator5.setBackground(new java.awt.Color(255, 255, 255));
+        indicator5.setBackground(new java.awt.Color(0, 97, 204));
 
         javax.swing.GroupLayout indicator5Layout = new javax.swing.GroupLayout(indicator5);
         indicator5.setLayout(indicator5Layout);
@@ -308,41 +315,60 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management/deb.png"))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(247, 240, 241));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel2.setText("Debopriya Deb Roy");
-
-        jLabel5.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel5.setText("Dhaka,Bangladesh");
-
-        jLabel6.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel6.setText("CSE,AUST");
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel2.setText("Description");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(103, 103, 103)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(270, Short.MAX_VALUE))
         );
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel1.setText("Person Name");
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(1, 122, 255));
+        jLabel3.setText("Report a Complain");
+
+        jTextField1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -355,17 +381,24 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(jLabel1)))
-                .addContainerGap(1841, Short.MAX_VALUE))
+                        .addGap(110, 110, 110)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(1566, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel3)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(335, Short.MAX_VALUE))
         );
@@ -374,13 +407,13 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -405,18 +438,11 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_hover5MouseEntered
 
     private void hover4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover4MouseExited
-        // TODO add your handling code here:
-        indicator5.setBackground(new Color(255, 255, 255));
-        hover4.setBackground(new Color(255, 255, 255));
-        // fina.setForeground(new Color(0, 0, 0));
+     
     }//GEN-LAST:event_hover4MouseExited
 
     private void hover4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover4MouseEntered
-        // TODO add your handling code here:
-        indicator5.setBackground(new Color(0, 0, 0));
-        hover4.setBackground(new Color(232, 232, 232));
-        //fina.setForeground(new Color(1,122,232));
-        // fina.setForeground(new Color(0,0,0));
+     
     }//GEN-LAST:event_hover4MouseEntered
 
     private void hover3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover3MouseExited
@@ -449,10 +475,31 @@ public class Dashboard extends javax.swing.JFrame {
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_hover2MouseEntered
 
-    private void hover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover4MouseClicked
-            Report r1 = new Report();
-            r1.setVisible(true);
-    }//GEN-LAST:event_hover4MouseClicked
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+        jLabel1.setForeground(new Color(1, 122, 255));
+        jLabel2.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField1MouseClicked
+
+    private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
+        jLabel1.setForeground(Color.BLACK);
+        jLabel2.setForeground(new Color(1, 122, 255));
+        
+        
+    }//GEN-LAST:event_jTextArea1MouseClicked
+
+    private void hover1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover1MouseEntered
+      indicator2.setBackground(new Color(0, 0, 0));
+        hover1.setBackground(new Color(232, 232, 232));
+    }//GEN-LAST:event_hover1MouseEntered
+
+    private void hover1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover1MouseExited
+         indicator2.setBackground(new Color(255, 255, 255));
+        hover1.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_hover1MouseExited
 
     /**
      * @param args the command line arguments
@@ -484,7 +531,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new Report().setVisible(true);
             }
         });
     }
@@ -506,11 +553,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel indicator6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel report;
     // End of variables declaration//GEN-END:variables
 }

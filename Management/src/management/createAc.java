@@ -112,11 +112,9 @@ public class createAc extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(1, 122, 255));
         jLabel4.setText("First Name");
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(1, 122, 255));
         jLabel5.setText("Password");
 
         jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
@@ -154,11 +152,9 @@ public class createAc extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(1, 122, 255));
         jLabel9.setText("User Name");
 
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(1, 122, 255));
         jLabel10.setText("Last Name");
 
         jPasswordField2.setForeground(new java.awt.Color(51, 51, 51));
@@ -174,7 +170,6 @@ public class createAc extends javax.swing.JFrame {
         jLabel12.setText("Use 8 or more characters with a mix of letters, symbols and numbers");
 
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(1, 122, 255));
         jLabel13.setText("Confirm Password");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management/visibilityOn.png"))); // NOI18N
