@@ -356,9 +356,9 @@ public class Dashboard extends javax.swing.JFrame implements frame{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
+                        .addGap(359, 359, 359)
                         .addComponent(jLabel1)))
-                .addContainerGap(1841, Short.MAX_VALUE))
+                .addContainerGap(1761, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
