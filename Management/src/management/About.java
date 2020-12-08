@@ -11,7 +11,7 @@ import java.awt.Color;
  *
  * @author Hello iT
  */
-public class About extends javax.swing.JFrame {
+public class About extends javax.swing.JFrame implements frame {
 
     /**
      * Creates new form about
@@ -31,19 +31,19 @@ public class About extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        hover1 = new javax.swing.JPanel();
+        dashboardBox = new javax.swing.JPanel();
         dash = new javax.swing.JLabel();
         indicator2 = new javax.swing.JPanel();
-        hover2 = new javax.swing.JPanel();
+        financesBox = new javax.swing.JPanel();
         fina = new javax.swing.JLabel();
         indicator3 = new javax.swing.JPanel();
-        hover3 = new javax.swing.JPanel();
+        homemateBox = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         indicator4 = new javax.swing.JPanel();
-        hover4 = new javax.swing.JPanel();
+        reportBox = new javax.swing.JPanel();
         report = new javax.swing.JLabel();
         indicator5 = new javax.swing.JPanel();
-        hover5 = new javax.swing.JPanel();
+        aboutBox = new javax.swing.JPanel();
         about = new javax.swing.JLabel();
         indicator6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -59,8 +59,13 @@ public class About extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        hover1.setBackground(new java.awt.Color(255, 255, 255));
-        hover1.setForeground(new java.awt.Color(240, 240, 240));
+        dashboardBox.setBackground(new java.awt.Color(255, 255, 255));
+        dashboardBox.setForeground(new java.awt.Color(240, 240, 240));
+        dashboardBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardBoxMouseClicked(evt);
+            }
+        });
 
         dash.setBackground(new java.awt.Color(0, 0, 0));
         dash.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -77,34 +82,34 @@ public class About extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout hover1Layout = new javax.swing.GroupLayout(hover1);
-        hover1.setLayout(hover1Layout);
-        hover1Layout.setHorizontalGroup(
-            hover1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hover1Layout.createSequentialGroup()
+        javax.swing.GroupLayout dashboardBoxLayout = new javax.swing.GroupLayout(dashboardBox);
+        dashboardBox.setLayout(dashboardBoxLayout);
+        dashboardBoxLayout.setHorizontalGroup(
+            dashboardBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardBoxLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(dash)
                 .addGap(0, 123, Short.MAX_VALUE))
-            .addGroup(hover1Layout.createSequentialGroup()
+            .addGroup(dashboardBoxLayout.createSequentialGroup()
                 .addComponent(indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(225, 225, 225))
         );
-        hover1Layout.setVerticalGroup(
-            hover1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hover1Layout.createSequentialGroup()
+        dashboardBoxLayout.setVerticalGroup(
+            dashboardBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardBoxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dash)
                 .addContainerGap())
             .addComponent(indicator2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover2.setBackground(new java.awt.Color(255, 255, 255));
-        hover2.addMouseListener(new java.awt.event.MouseAdapter() {
+        financesBox.setBackground(new java.awt.Color(255, 255, 255));
+        financesBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                hover2MouseEntered(evt);
+                financesBoxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                hover2MouseExited(evt);
+                financesBoxMouseExited(evt);
             }
         });
 
@@ -124,32 +129,32 @@ public class About extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout hover2Layout = new javax.swing.GroupLayout(hover2);
-        hover2.setLayout(hover2Layout);
-        hover2Layout.setHorizontalGroup(
-            hover2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hover2Layout.createSequentialGroup()
+        javax.swing.GroupLayout financesBoxLayout = new javax.swing.GroupLayout(financesBox);
+        financesBox.setLayout(financesBoxLayout);
+        financesBoxLayout.setHorizontalGroup(
+            financesBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(financesBoxLayout.createSequentialGroup()
                 .addComponent(indicator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(fina)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        hover2Layout.setVerticalGroup(
-            hover2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hover2Layout.createSequentialGroup()
+        financesBoxLayout.setVerticalGroup(
+            financesBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, financesBoxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(fina)
                 .addContainerGap())
             .addComponent(indicator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover3.setBackground(new java.awt.Color(255, 255, 255));
-        hover3.addMouseListener(new java.awt.event.MouseAdapter() {
+        homemateBox.setBackground(new java.awt.Color(255, 255, 255));
+        homemateBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                hover3MouseEntered(evt);
+                homemateBoxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                hover3MouseExited(evt);
+                homemateBoxMouseExited(evt);
             }
         });
 
@@ -169,32 +174,35 @@ public class About extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout hover3Layout = new javax.swing.GroupLayout(hover3);
-        hover3.setLayout(hover3Layout);
-        hover3Layout.setHorizontalGroup(
-            hover3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hover3Layout.createSequentialGroup()
+        javax.swing.GroupLayout homemateBoxLayout = new javax.swing.GroupLayout(homemateBox);
+        homemateBox.setLayout(homemateBoxLayout);
+        homemateBoxLayout.setHorizontalGroup(
+            homemateBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homemateBoxLayout.createSequentialGroup()
                 .addComponent(indicator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(home)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        hover3Layout.setVerticalGroup(
-            hover3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hover3Layout.createSequentialGroup()
+        homemateBoxLayout.setVerticalGroup(
+            homemateBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homemateBoxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(home)
                 .addContainerGap())
             .addComponent(indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover4.setBackground(java.awt.Color.white);
-        hover4.addMouseListener(new java.awt.event.MouseAdapter() {
+        reportBox.setBackground(java.awt.Color.white);
+        reportBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reportBoxMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                hover4MouseEntered(evt);
+                reportBoxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                hover4MouseExited(evt);
+                reportBoxMouseExited(evt);
             }
         });
 
@@ -214,32 +222,32 @@ public class About extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout hover4Layout = new javax.swing.GroupLayout(hover4);
-        hover4.setLayout(hover4Layout);
-        hover4Layout.setHorizontalGroup(
-            hover4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hover4Layout.createSequentialGroup()
+        javax.swing.GroupLayout reportBoxLayout = new javax.swing.GroupLayout(reportBox);
+        reportBox.setLayout(reportBoxLayout);
+        reportBoxLayout.setHorizontalGroup(
+            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportBoxLayout.createSequentialGroup()
                 .addComponent(indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(report)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        hover4Layout.setVerticalGroup(
-            hover4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hover4Layout.createSequentialGroup()
+        reportBoxLayout.setVerticalGroup(
+            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportBoxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(report)
                 .addContainerGap())
             .addComponent(indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hover5.setBackground(new java.awt.Color(1, 122, 255));
-        hover5.addMouseListener(new java.awt.event.MouseAdapter() {
+        aboutBox.setBackground(new java.awt.Color(1, 122, 255));
+        aboutBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                hover5MouseEntered(evt);
+                aboutBoxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                hover5MouseExited(evt);
+                aboutBoxMouseExited(evt);
             }
         });
 
@@ -260,19 +268,19 @@ public class About extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout hover5Layout = new javax.swing.GroupLayout(hover5);
-        hover5.setLayout(hover5Layout);
-        hover5Layout.setHorizontalGroup(
-            hover5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hover5Layout.createSequentialGroup()
+        javax.swing.GroupLayout aboutBoxLayout = new javax.swing.GroupLayout(aboutBox);
+        aboutBox.setLayout(aboutBoxLayout);
+        aboutBoxLayout.setHorizontalGroup(
+            aboutBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutBoxLayout.createSequentialGroup()
                 .addComponent(indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(about)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        hover5Layout.setVerticalGroup(
-            hover5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hover5Layout.createSequentialGroup()
+        aboutBoxLayout.setVerticalGroup(
+            aboutBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutBoxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(about)
                 .addContainerGap())
@@ -283,25 +291,25 @@ public class About extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(hover1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(hover2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(hover3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(hover4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(hover5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dashboardBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(financesBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(homemateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(reportBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(aboutBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(hover1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dashboardBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hover2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(financesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hover3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homemateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hover4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reportBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hover5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aboutBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -388,65 +396,78 @@ public class About extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void hover5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover5MouseExited
+    private void aboutBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseExited
         // TODO add your handling code here:
         indicator6.setBackground(new Color(255, 255, 255));
-        hover5.setBackground(new Color(255, 255, 255));
+        aboutBox.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_hover5MouseExited
+    }//GEN-LAST:event_aboutBoxMouseExited
 
-    private void hover5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover5MouseEntered
+    private void aboutBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseEntered
         // TODO add your handling code here:
         indicator6.setBackground(new Color(0, 0, 0));
-        hover5.setBackground(new Color(232, 232, 232));
+        aboutBox.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_hover5MouseEntered
+    }//GEN-LAST:event_aboutBoxMouseEntered
 
-    private void hover4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover4MouseExited
+    private void reportBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseExited
         // TODO add your handling code here:
         indicator5.setBackground(new Color(255, 255, 255));
-        hover4.setBackground(new Color(255, 255, 255));
+        reportBox.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_hover4MouseExited
+    }//GEN-LAST:event_reportBoxMouseExited
 
-    private void hover4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover4MouseEntered
+    private void reportBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseEntered
         // TODO add your handling code here:
         indicator5.setBackground(new Color(0, 0, 0));
-        hover4.setBackground(new Color(232, 232, 232));
+        reportBox.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_hover4MouseEntered
+    }//GEN-LAST:event_reportBoxMouseEntered
 
-    private void hover3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover3MouseExited
+    private void homemateBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseExited
         // TODO add your handling code here:
         indicator4.setBackground(new Color(255, 255, 255));
-        hover3.setBackground(new Color(255, 255, 255));
+        homemateBox.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_hover3MouseExited
+    }//GEN-LAST:event_homemateBoxMouseExited
 
-    private void hover3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover3MouseEntered
+    private void homemateBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseEntered
         // TODO add your handling code here:
         indicator4.setBackground(new Color(0, 0, 0));
-        hover3.setBackground(new Color(232, 232, 232));
+        homemateBox.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_hover3MouseEntered
+    }//GEN-LAST:event_homemateBoxMouseEntered
 
-    private void hover2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover2MouseExited
+    private void financesBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseExited
         // TODO add your handling code here:
         indicator3.setBackground(new Color(255, 255, 255));
-        hover2.setBackground(new Color(255, 255, 255));
+        financesBox.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_hover2MouseExited
+    }//GEN-LAST:event_financesBoxMouseExited
 
-    private void hover2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hover2MouseEntered
+    private void financesBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseEntered
         // TODO add your handling code here:
         indicator3.setBackground(new Color(0, 0, 0));
-        hover2.setBackground(new Color(232, 232, 232));
+        financesBox.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_hover2MouseEntered
+    }//GEN-LAST:event_financesBoxMouseEntered
+
+    private void reportBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseClicked
+        r1.setVisible(true);
+        this.dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_reportBoxMouseClicked
+
+    private void dashboardBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseClicked
+        d1.setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_dashboardBoxMouseClicked
 
     /**
      * @param args the command line arguments
@@ -485,14 +506,13 @@ public class About extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel about;
+    private javax.swing.JPanel aboutBox;
     private javax.swing.JLabel dash;
+    private javax.swing.JPanel dashboardBox;
     private javax.swing.JLabel fina;
+    private javax.swing.JPanel financesBox;
     private javax.swing.JLabel home;
-    private javax.swing.JPanel hover1;
-    private javax.swing.JPanel hover2;
-    private javax.swing.JPanel hover3;
-    private javax.swing.JPanel hover4;
-    private javax.swing.JPanel hover5;
+    private javax.swing.JPanel homemateBox;
     private javax.swing.JPanel indicator2;
     private javax.swing.JPanel indicator3;
     private javax.swing.JPanel indicator4;
@@ -506,5 +526,6 @@ public class About extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel report;
+    private javax.swing.JPanel reportBox;
     // End of variables declaration//GEN-END:variables
 }
