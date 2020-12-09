@@ -5,20 +5,30 @@
  */
 package management;
 
+import com.mysql.jdbc.Statement;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hello iT
  */
-public class signIN extends javax.swing.JFrame implements frame{
+public class signIN extends javax.swing.JFrame implements frame {
 
-    /**
-     * Creates new form signIN
-     */
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    Statement st;
+
     public signIN() {
         initComponents();
+        conn = databaseConnection.connectdb();
+
     }
 
     /**
@@ -36,10 +46,10 @@ public class signIN extends javax.swing.JFrame implements frame{
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        LName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        LPass = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         button = new javax.swing.JLabel();
@@ -95,13 +105,13 @@ public class signIN extends javax.swing.JFrame implements frame{
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login");
 
-        jTextField1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        LName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        LName.setForeground(new java.awt.Color(51, 51, 51));
+        LName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        LName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        LName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                LNameActionPerformed(evt);
             }
         });
 
@@ -113,9 +123,14 @@ public class signIN extends javax.swing.JFrame implements frame{
         jLabel5.setForeground(new java.awt.Color(1, 122, 255));
         jLabel5.setText("Password");
 
-        jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        LPass.setForeground(new java.awt.Color(51, 51, 51));
+        LPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        LPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        LPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LPassKeyPressed(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
@@ -157,8 +172,8 @@ public class signIN extends javax.swing.JFrame implements frame{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jPasswordField1)
-                    .addComponent(jTextField1)
+                    .addComponent(LPass)
+                    .addComponent(LName)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
@@ -183,11 +198,11 @@ public class signIN extends javax.swing.JFrame implements frame{
                 .addGap(28, 28, 28)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LPass, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(button)
                 .addGap(18, 18, 18)
@@ -213,9 +228,9 @@ public class signIN extends javax.swing.JFrame implements frame{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void LNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_LNameActionPerformed
 
     private void buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseEntered
         // TODO add your handling code here:
@@ -225,14 +240,35 @@ public class signIN extends javax.swing.JFrame implements frame{
 
     private void buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseExited
         // TODO add your handling code here:
-         ImageIcon i = new ImageIcon(getClass().getResource("login_defaultState.png"));
+        ImageIcon i = new ImageIcon(getClass().getResource("login_defaultState.png"));
         button.setIcon(i);
     }//GEN-LAST:event_buttonMouseExited
 
     private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
-        Dashboard d1 = new Dashboard();
-        d1.setVisible(true);
-         this.dispose();
+
+        try {
+            st = (Statement) conn.createStatement();
+            String query = "SELECT *\n"
+                    + "FROM userinfo\n"
+                    + "WHERE UserName='" + LName.getText() + "' and Password='" + LPass.getText() + "'";
+            rs = st.executeQuery(query);
+            rs.next();
+            String name = rs.getString("UserName");
+            String pass = rs.getString("Password");
+
+            Dashboard d1 = new Dashboard();
+            d1.setVisible(true);
+            System.out.println("Accept");
+            this.dispose();
+        } catch (Exception e) {
+            System.out.println("Wrong");
+            JOptionPane.showMessageDialog(null, "You don't have any account!", "Wrong", 0);
+            LName.setText(null);
+            LPass.setText(null);
+
+        }
+
+
     }//GEN-LAST:event_buttonMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -241,18 +277,23 @@ public class signIN extends javax.swing.JFrame implements frame{
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
-        jLabel7.setForeground(new Color(1,122,255));
+        jLabel7.setForeground(new Color(1, 122, 255));
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
         jLabel7.setForeground(Color.BLACK);
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseExited
-    
+
+    private void LPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LPassKeyPressed
+      
+            // TODO add your handling code here:
+    }//GEN-LAST:event_LPassKeyPressed
+
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -286,6 +327,8 @@ public class signIN extends javax.swing.JFrame implements frame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField LName;
+    private javax.swing.JPasswordField LPass;
     private javax.swing.JLabel button;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -297,7 +340,5 @@ public class signIN extends javax.swing.JFrame implements frame{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
