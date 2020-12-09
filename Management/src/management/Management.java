@@ -5,24 +5,27 @@
  */
 package management;
 
+import com.mysql.jdbc.Connection;
+import java.sql.*;
+
 /**
  *
  * @author Hello iT
  */
-public class Management {
+public class Management implements frame {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.sql.SQLException
      */
-    public static void main(String[] args) {
-        signIN sg = new signIN();
+    public static void main(String[] args) throws Exception {
         sg.setVisible(true);
        
           
-        Dashboard d1 = new Dashboard();
-        Report r1 = new Report();
-        createAc ca1 = new createAc();
-        About ab1 = new About();
+        
+        
+        
         
     }
     
