@@ -6,6 +6,7 @@
 package management;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,7 +41,7 @@ public class About extends javax.swing.JFrame implements frame {
         homemateBox = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         indicator4 = new javax.swing.JPanel();
-        reportBox = new javax.swing.JPanel();
+        Log_Out = new javax.swing.JPanel();
         report = new javax.swing.JLabel();
         indicator5 = new javax.swing.JPanel();
         aboutBox = new javax.swing.JPanel();
@@ -48,9 +49,10 @@ public class About extends javax.swing.JFrame implements frame {
         indicator6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -65,11 +67,19 @@ public class About extends javax.swing.JFrame implements frame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dashboardBoxMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardBoxMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardBoxMouseExited(evt);
+            }
         });
 
         dash.setBackground(new java.awt.Color(0, 0, 0));
         dash.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         dash.setText("Dashboard");
+
+        indicator2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout indicator2Layout = new javax.swing.GroupLayout(indicator2);
         indicator2.setLayout(indicator2Layout);
@@ -105,6 +115,9 @@ public class About extends javax.swing.JFrame implements frame {
 
         financesBox.setBackground(new java.awt.Color(255, 255, 255));
         financesBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                financesBoxMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 financesBoxMouseEntered(evt);
             }
@@ -150,6 +163,9 @@ public class About extends javax.swing.JFrame implements frame {
 
         homemateBox.setBackground(new java.awt.Color(255, 255, 255));
         homemateBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homemateBoxMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 homemateBoxMouseEntered(evt);
             }
@@ -193,21 +209,21 @@ public class About extends javax.swing.JFrame implements frame {
             .addComponent(indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        reportBox.setBackground(java.awt.Color.white);
-        reportBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        Log_Out.setBackground(java.awt.Color.white);
+        Log_Out.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reportBoxMouseClicked(evt);
+                Log_OutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                reportBoxMouseEntered(evt);
+                Log_OutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                reportBoxMouseExited(evt);
+                Log_OutMouseExited(evt);
             }
         });
 
         report.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        report.setText("Report");
+        report.setText("Log Out");
 
         indicator5.setBackground(java.awt.Color.white);
 
@@ -222,19 +238,19 @@ public class About extends javax.swing.JFrame implements frame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout reportBoxLayout = new javax.swing.GroupLayout(reportBox);
-        reportBox.setLayout(reportBoxLayout);
-        reportBoxLayout.setHorizontalGroup(
-            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportBoxLayout.createSequentialGroup()
+        javax.swing.GroupLayout Log_OutLayout = new javax.swing.GroupLayout(Log_Out);
+        Log_Out.setLayout(Log_OutLayout);
+        Log_OutLayout.setHorizontalGroup(
+            Log_OutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Log_OutLayout.createSequentialGroup()
                 .addComponent(indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(report)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        reportBoxLayout.setVerticalGroup(
-            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportBoxLayout.createSequentialGroup()
+        Log_OutLayout.setVerticalGroup(
+            Log_OutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Log_OutLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(report)
                 .addContainerGap())
@@ -294,8 +310,10 @@ public class About extends javax.swing.JFrame implements frame {
             .addComponent(dashboardBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(financesBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(homemateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(reportBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(aboutBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Log_Out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,9 +325,9 @@ public class About extends javax.swing.JFrame implements frame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(homemateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reportBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(aboutBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Log_Out, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -318,31 +336,38 @@ public class About extends javax.swing.JFrame implements frame {
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setText("Bug Report: https://github.com/avishek202/Becholor_Point/issues");
 
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel1.setText("Github: https://github.com/DDR13GIT/Becholor_Point ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
                 .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(0, 711, Short.MAX_VALUE))
+                .addContainerGap(700, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(1, 122, 255));
         jLabel2.setText("About Us");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel1.setText("Github: https://github.com/DDR13GIT/Becholor_Point ");
-
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Developers: Arittra Das & Debopriya Deb Roy");
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel5.setText("Also thanks to Shafayat Jamil");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -357,22 +382,22 @@ public class About extends javax.swing.JFrame implements frame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))))
                 .addContainerGap(1481, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(120, 120, 120)
                 .addComponent(jLabel2)
-                .addGap(53, 53, 53)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(335, Short.MAX_VALUE))
         );
@@ -398,33 +423,33 @@ public class About extends javax.swing.JFrame implements frame {
 
     private void aboutBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseExited
         // TODO add your handling code here:
-        indicator6.setBackground(new Color(255, 255, 255));
-        aboutBox.setBackground(new Color(255, 255, 255));
+//        indicator6.setBackground(new Color(255, 255, 255));
+//        aboutBox.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_aboutBoxMouseExited
 
     private void aboutBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseEntered
         // TODO add your handling code here:
-        indicator6.setBackground(new Color(0, 0, 0));
-        aboutBox.setBackground(new Color(232, 232, 232));
+//        indicator6.setBackground(new Color(0, 0, 0));
+//        aboutBox.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_aboutBoxMouseEntered
 
-    private void reportBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseExited
+    private void Log_OutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseExited
         // TODO add your handling code here:
         indicator5.setBackground(new Color(255, 255, 255));
-        reportBox.setBackground(new Color(255, 255, 255));
+        Log_Out.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_reportBoxMouseExited
+    }//GEN-LAST:event_Log_OutMouseExited
 
-    private void reportBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseEntered
+    private void Log_OutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseEntered
         // TODO add your handling code here:
         indicator5.setBackground(new Color(0, 0, 0));
-        reportBox.setBackground(new Color(232, 232, 232));
+        Log_Out.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_reportBoxMouseEntered
+    }//GEN-LAST:event_Log_OutMouseEntered
 
     private void homemateBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseExited
         // TODO add your handling code here:
@@ -456,18 +481,48 @@ public class About extends javax.swing.JFrame implements frame {
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_financesBoxMouseEntered
 
-    private void reportBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseClicked
-        r1.setVisible(true);
+    private void Log_OutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseClicked
+        JOptionPane.showMessageDialog(null, "Log Out From Your Account!", "Hey", 1);
+        signIN.id = null;
+        signIN s = new signIN();
+        s.setVisible(true);
         this.dispose();
-        
+
 // TODO add your handling code here:
-    }//GEN-LAST:event_reportBoxMouseClicked
+    }//GEN-LAST:event_Log_OutMouseClicked
 
     private void dashboardBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseClicked
-        d1.setVisible(true);
+        Dashboard d = new Dashboard();
+        d.setVisible(true);
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_dashboardBoxMouseClicked
+
+    private void financesBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseClicked
+        // TODO add your handling code here:
+        M_Finance m = new M_Finance();
+        m.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_financesBoxMouseClicked
+
+    private void homemateBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseClicked
+        // TODO add your handling code here:
+        homemate h = new homemate();
+        h.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_homemateBoxMouseClicked
+
+    private void dashboardBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseEntered
+        // TODO add your handling code here:
+        indicator2.setBackground(new Color(0, 0, 0));
+        dashboardBox.setBackground(new Color(232, 232, 232));
+    }//GEN-LAST:event_dashboardBoxMouseEntered
+
+    private void dashboardBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseExited
+        // TODO add your handling code here:
+         indicator2.setBackground(new Color(255, 255, 255));
+        dashboardBox.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_dashboardBoxMouseExited
 
     /**
      * @param args the command line arguments
@@ -505,6 +560,7 @@ public class About extends javax.swing.JFrame implements frame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Log_Out;
     private javax.swing.JLabel about;
     private javax.swing.JPanel aboutBox;
     private javax.swing.JLabel dash;
@@ -522,10 +578,10 @@ public class About extends javax.swing.JFrame implements frame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel report;
-    private javax.swing.JPanel reportBox;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,19 +6,86 @@
 package management;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hello iT
  */
-public class Dashboard extends javax.swing.JFrame implements frame{
+public class Dashboard extends javax.swing.JFrame implements frame {
 
-    /**
-     * Creates new form Dashboard
-     */
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    Statement st;
+    int id = Integer.parseInt(signIN.id);
+
     public Dashboard() {
         initComponents();
-        
+        conn = databaseConnection.connectdb();
+        String query = "SELECT FirstName,LastName,UserName,University,MobileNo,LocalG,LocalGNum,EmailAdd,BloodG\n"
+                + "FROM  userinfo\n"
+                + "WHERE UserID='" + id + "'";
+        String query1 = "SELECT Picture\n"
+                + "FROM userinfo\n"
+                + "WHERE UserID='" + id + "'";
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+
+//            ResultSet rs1 = st.executeQuery(query1);
+//            while (rs1.next()) {
+//                BufferedImage im;
+//                try {
+//                    im = ImageIO.read(rs.getBinaryStream("Picture"));
+//                    display_Photo.setIcon(new ImageIcon(im));
+//                } catch (IOException ex) {
+//                    Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//
+//            }
+            rs.next();
+            user1.setText(rs.getString("UserName"));
+            uni1.setText(rs.getString("University"));
+            mobile1.setText(rs.getString("MobileNo"));
+            email1.setText(rs.getString("EmailAdd"));
+            bld1.setText(rs.getString("BloodG"));
+            local1.setText(rs.getString("LocalG"));
+            L_Num1.setText(rs.getString("LocalGNum"));
+            F_name.setText(rs.getString("FirstName"));
+            L_Name.setText(rs.getString("LastName"));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+                   
+        try {
+             rs = st.executeQuery(query1);
+            while (rs.next()) {
+                BufferedImage im;
+                try {
+                    im = ImageIO.read(rs.getBinaryStream("Picture"));
+                    display_Photo.setIcon(new ImageIcon(im));
+                } catch (IOException ex) {
+                    Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -41,17 +108,35 @@ public class Dashboard extends javax.swing.JFrame implements frame{
         homemateBox = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         indicator4 = new javax.swing.JPanel();
-        reportBox = new javax.swing.JPanel();
+        About = new javax.swing.JPanel();
         report = new javax.swing.JLabel();
         indicator5 = new javax.swing.JPanel();
-        aboutBox = new javax.swing.JPanel();
+        Log_Out = new javax.swing.JPanel();
         about = new javax.swing.JLabel();
         indicator6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        display_Photo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        uni = new javax.swing.JLabel();
+        mobile = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
+        bld = new javax.swing.JLabel();
+        local = new javax.swing.JLabel();
+        L_Num = new javax.swing.JLabel();
+        user1 = new javax.swing.JLabel();
+        uni1 = new javax.swing.JLabel();
+        mobile1 = new javax.swing.JLabel();
+        email1 = new javax.swing.JLabel();
+        bld1 = new javax.swing.JLabel();
+        local1 = new javax.swing.JLabel();
+        L_Num1 = new javax.swing.JLabel();
+        L_Num2 = new javax.swing.JLabel();
+        user = new javax.swing.JLabel();
+        Welcome = new javax.swing.JLabel();
+        L_Name = new javax.swing.JLabel();
+        F_name = new javax.swing.JLabel();
+        user4 = new javax.swing.JLabel();
+        user5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -102,6 +187,9 @@ public class Dashboard extends javax.swing.JFrame implements frame{
 
         financesBox.setBackground(new java.awt.Color(255, 255, 255));
         financesBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                financesBoxMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 financesBoxMouseEntered(evt);
             }
@@ -147,6 +235,9 @@ public class Dashboard extends javax.swing.JFrame implements frame{
 
         homemateBox.setBackground(new java.awt.Color(255, 255, 255));
         homemateBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homemateBoxMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 homemateBoxMouseEntered(evt);
             }
@@ -190,21 +281,21 @@ public class Dashboard extends javax.swing.JFrame implements frame{
             .addComponent(indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        reportBox.setBackground(new java.awt.Color(255, 255, 255));
-        reportBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        About.setBackground(new java.awt.Color(255, 255, 255));
+        About.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reportBoxMouseClicked(evt);
+                AboutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                reportBoxMouseEntered(evt);
+                AboutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                reportBoxMouseExited(evt);
+                AboutMouseExited(evt);
             }
         });
 
         report.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        report.setText("Report");
+        report.setText("About Us");
 
         indicator5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -219,40 +310,40 @@ public class Dashboard extends javax.swing.JFrame implements frame{
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout reportBoxLayout = new javax.swing.GroupLayout(reportBox);
-        reportBox.setLayout(reportBoxLayout);
-        reportBoxLayout.setHorizontalGroup(
-            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportBoxLayout.createSequentialGroup()
+        javax.swing.GroupLayout AboutLayout = new javax.swing.GroupLayout(About);
+        About.setLayout(AboutLayout);
+        AboutLayout.setHorizontalGroup(
+            AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AboutLayout.createSequentialGroup()
                 .addComponent(indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(report)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        reportBoxLayout.setVerticalGroup(
-            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportBoxLayout.createSequentialGroup()
+        AboutLayout.setVerticalGroup(
+            AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AboutLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(report)
                 .addContainerGap())
             .addComponent(indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        aboutBox.setBackground(new java.awt.Color(255, 255, 255));
-        aboutBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        Log_Out.setBackground(new java.awt.Color(255, 255, 255));
+        Log_Out.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aboutBoxMouseClicked(evt);
+                Log_OutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aboutBoxMouseEntered(evt);
+                Log_OutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                aboutBoxMouseExited(evt);
+                Log_OutMouseExited(evt);
             }
         });
 
         about.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        about.setText("About Us");
+        about.setText("Log Out");
 
         indicator6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -267,19 +358,19 @@ public class Dashboard extends javax.swing.JFrame implements frame{
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout aboutBoxLayout = new javax.swing.GroupLayout(aboutBox);
-        aboutBox.setLayout(aboutBoxLayout);
-        aboutBoxLayout.setHorizontalGroup(
-            aboutBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutBoxLayout.createSequentialGroup()
+        javax.swing.GroupLayout Log_OutLayout = new javax.swing.GroupLayout(Log_Out);
+        Log_Out.setLayout(Log_OutLayout);
+        Log_OutLayout.setHorizontalGroup(
+            Log_OutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Log_OutLayout.createSequentialGroup()
                 .addComponent(indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(about)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        aboutBoxLayout.setVerticalGroup(
-            aboutBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutBoxLayout.createSequentialGroup()
+        Log_OutLayout.setVerticalGroup(
+            Log_OutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Log_OutLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(about)
                 .addContainerGap())
@@ -293,8 +384,8 @@ public class Dashboard extends javax.swing.JFrame implements frame{
             .addComponent(dashboardBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(financesBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(homemateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(reportBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(aboutBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(About, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Log_Out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,47 +397,194 @@ public class Dashboard extends javax.swing.JFrame implements frame{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(homemateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reportBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(About, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(aboutBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Log_Out, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management/deb.png"))); // NOI18N
+        display_Photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management/deb.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel2.setText("Debopriya Deb Roy");
+        jLabel4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(1, 122, 255));
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel5.setText("Dhaka,Bangladesh");
+        uni.setBackground(new java.awt.Color(1, 122, 255));
+        uni.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        uni.setForeground(new java.awt.Color(1, 122, 255));
+        uni.setText("University ");
 
-        jLabel6.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel6.setText("CSE,AUST");
+        mobile.setBackground(new java.awt.Color(1, 122, 255));
+        mobile.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        mobile.setForeground(new java.awt.Color(1, 122, 255));
+        mobile.setText("Mobile No ");
+
+        email.setBackground(new java.awt.Color(1, 122, 255));
+        email.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        email.setForeground(new java.awt.Color(1, 122, 255));
+        email.setText("Email Account ");
+
+        bld.setBackground(new java.awt.Color(1, 122, 255));
+        bld.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        bld.setForeground(new java.awt.Color(1, 122, 255));
+        bld.setText("Blood Group ");
+
+        local.setBackground(new java.awt.Color(1, 122, 255));
+        local.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        local.setForeground(new java.awt.Color(1, 122, 255));
+        local.setText("Local Guardian ");
+
+        L_Num.setBackground(new java.awt.Color(1, 122, 255));
+        L_Num.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        L_Num.setForeground(new java.awt.Color(1, 122, 255));
+        L_Num.setText("Guardian Number ");
+
+        user1.setBackground(new java.awt.Color(1, 122, 255));
+        user1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        user1.setForeground(new java.awt.Color(51, 51, 51));
+        user1.setText("Guardian Number >>");
+
+        uni1.setBackground(new java.awt.Color(1, 122, 255));
+        uni1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        uni1.setForeground(new java.awt.Color(51, 51, 51));
+        uni1.setText("Guardian Number >>");
+
+        mobile1.setBackground(new java.awt.Color(1, 122, 255));
+        mobile1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        mobile1.setForeground(new java.awt.Color(51, 51, 51));
+        mobile1.setText("Guardian Number >>");
+
+        email1.setBackground(new java.awt.Color(1, 122, 255));
+        email1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        email1.setForeground(new java.awt.Color(51, 51, 51));
+        email1.setText("Guardian Number >>");
+
+        bld1.setBackground(new java.awt.Color(1, 122, 255));
+        bld1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        bld1.setForeground(new java.awt.Color(51, 51, 51));
+        bld1.setText("Guardian Number >>");
+
+        local1.setBackground(new java.awt.Color(1, 122, 255));
+        local1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        local1.setForeground(new java.awt.Color(51, 51, 51));
+        local1.setText("Guardian Number >>");
+
+        L_Num1.setBackground(new java.awt.Color(1, 122, 255));
+        L_Num1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        L_Num1.setForeground(new java.awt.Color(51, 51, 51));
+        L_Num1.setText("Guardian Number >>");
+
+        L_Num2.setBackground(new java.awt.Color(1, 122, 255));
+        L_Num2.setFont(new java.awt.Font("Calibri", 1, 29)); // NOI18N
+        L_Num2.setForeground(new java.awt.Color(102, 102, 102));
+        L_Num2.setText("Profile");
+
+        user.setBackground(new java.awt.Color(1, 122, 255));
+        user.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        user.setForeground(new java.awt.Color(1, 122, 255));
+        user.setText("User Name ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap(211, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(L_Num2)
+                        .addGap(342, 342, 342))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(uni)
+                            .addComponent(mobile)
+                            .addComponent(email)
+                            .addComponent(bld)
+                            .addComponent(local)
+                            .addComponent(L_Num)
+                            .addComponent(user))
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(uni1)
+                            .addComponent(user1)
+                            .addComponent(mobile1)
+                            .addComponent(email1)
+                            .addComponent(bld1)
+                            .addComponent(local1)
+                            .addComponent(L_Num1))
+                        .addGap(145, 145, 145))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(115, 115, 115)
+                    .addComponent(jLabel4)
+                    .addContainerGap(659, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(L_Num2)
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user1)
+                    .addComponent(user))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uni1)
+                    .addComponent(uni))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mobile1)
+                    .addComponent(mobile))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(email1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bld)
+                    .addComponent(bld1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(local)
+                    .addComponent(local1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(L_Num)
+                    .addComponent(L_Num1))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(143, 143, 143)
+                    .addComponent(jLabel4)
+                    .addContainerGap(273, Short.MAX_VALUE)))
         );
+
+        Welcome.setBackground(new java.awt.Color(1, 122, 255));
+        Welcome.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Welcome.setForeground(new java.awt.Color(51, 51, 51));
+        Welcome.setText("Welcome Back ,");
+
+        L_Name.setBackground(new java.awt.Color(1, 122, 255));
+        L_Name.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        L_Name.setForeground(new java.awt.Color(51, 51, 51));
+        L_Name.setText("Last");
+
+        F_name.setBackground(new java.awt.Color(1, 122, 255));
+        F_name.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        F_name.setForeground(new java.awt.Color(51, 51, 51));
+        F_name.setText("Name");
+
+        user4.setBackground(new java.awt.Color(1, 122, 255));
+        user4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        user4.setForeground(new java.awt.Color(1, 122, 255));
+        user4.setText("Nice To Meat You");
+
+        user5.setBackground(new java.awt.Color(1, 122, 255));
+        user5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        user5.setForeground(new java.awt.Color(1, 122, 255));
+        user5.setText("HAVE A NICE DAY!");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -356,22 +594,44 @@ public class Dashboard extends javax.swing.JFrame implements frame{
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(27, 27, 27)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(359, 359, 359)
-                        .addComponent(jLabel1)))
-                .addContainerGap(1761, Short.MAX_VALUE))
+                        .addGap(364, 364, 364)
+                        .addComponent(display_Photo))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(user4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(user5))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(Welcome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(F_name)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(L_Name)))))
+                .addContainerGap(1582, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Welcome)
+                    .addComponent(F_name)
+                    .addComponent(L_Name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user4)
+                    .addComponent(user5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(display_Photo)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -384,44 +644,42 @@ public class Dashboard extends javax.swing.JFrame implements frame{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(1166, 839));
+        setSize(new java.awt.Dimension(1137, 712));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void aboutBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseExited
+    private void Log_OutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseExited
         // TODO add your handling code here:
         indicator6.setBackground(new Color(255, 255, 255));
-        aboutBox.setBackground(new Color(255, 255, 255));
+        Log_Out.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_aboutBoxMouseExited
+    }//GEN-LAST:event_Log_OutMouseExited
 
-    private void aboutBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseEntered
+    private void Log_OutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseEntered
         // TODO add your handling code here:
         indicator6.setBackground(new Color(0, 0, 0));
-        aboutBox.setBackground(new Color(232, 232, 232));
+        Log_Out.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_aboutBoxMouseEntered
+    }//GEN-LAST:event_Log_OutMouseEntered
 
-    private void reportBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseExited
+    private void AboutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMouseExited
         // TODO add your handling code here:
         indicator5.setBackground(new Color(255, 255, 255));
-        reportBox.setBackground(new Color(255, 255, 255));
+        About.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_reportBoxMouseExited
+    }//GEN-LAST:event_AboutMouseExited
 
-    private void reportBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseEntered
+    private void AboutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMouseEntered
         // TODO add your handling code here:
         indicator5.setBackground(new Color(0, 0, 0));
-        reportBox.setBackground(new Color(232, 232, 232));
+        About.setBackground(new Color(232, 232, 232));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_reportBoxMouseEntered
+    }//GEN-LAST:event_AboutMouseEntered
 
     private void homemateBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseExited
         // TODO add your handling code here:
@@ -453,16 +711,34 @@ public class Dashboard extends javax.swing.JFrame implements frame{
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_financesBoxMouseEntered
 
-    private void reportBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseClicked
-            r1.setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_reportBoxMouseClicked
+    private void AboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMouseClicked
+       About a = new About();
+       a.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_AboutMouseClicked
 
-    private void aboutBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseClicked
+    private void Log_OutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseClicked
         // TODO add your handling code here:
-        ab1.setVisible(true);
+         JOptionPane.showMessageDialog(null, "Log Out From Your Account!", "Hey", 1);
+       signIN.id=null;
+      signIN s = new signIN();
+      s.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_Log_OutMouseClicked
+
+    private void financesBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseClicked
+        // TODO add your handling code here:
+        M_Finance f = new M_Finance();
+        f.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_aboutBoxMouseClicked
+    }//GEN-LAST:event_financesBoxMouseClicked
+
+    private void homemateBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseClicked
+        // TODO add your handling code here:
+        homemate h = new homemate();
+        h.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_homemateBoxMouseClicked
 
     /**
      * @param args the command line arguments
@@ -500,10 +776,22 @@ public class Dashboard extends javax.swing.JFrame implements frame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel About;
+    private javax.swing.JLabel F_name;
+    private javax.swing.JLabel L_Name;
+    private javax.swing.JLabel L_Num;
+    private javax.swing.JLabel L_Num1;
+    private javax.swing.JLabel L_Num2;
+    private javax.swing.JPanel Log_Out;
+    private javax.swing.JLabel Welcome;
     private javax.swing.JLabel about;
-    private javax.swing.JPanel aboutBox;
+    private javax.swing.JLabel bld;
+    private javax.swing.JLabel bld1;
     private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboardBox;
+    private javax.swing.JLabel display_Photo;
+    private javax.swing.JLabel email;
+    private javax.swing.JLabel email1;
     private javax.swing.JLabel fina;
     private javax.swing.JPanel financesBox;
     private javax.swing.JLabel home;
@@ -513,14 +801,20 @@ public class Dashboard extends javax.swing.JFrame implements frame{
     private javax.swing.JPanel indicator4;
     private javax.swing.JPanel indicator5;
     private javax.swing.JPanel indicator6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel local;
+    private javax.swing.JLabel local1;
+    private javax.swing.JLabel mobile;
+    private javax.swing.JLabel mobile1;
     private javax.swing.JLabel report;
-    private javax.swing.JPanel reportBox;
+    private javax.swing.JLabel uni;
+    private javax.swing.JLabel uni1;
+    private javax.swing.JLabel user;
+    private javax.swing.JLabel user1;
+    private javax.swing.JLabel user4;
+    private javax.swing.JLabel user5;
     // End of variables declaration//GEN-END:variables
 }

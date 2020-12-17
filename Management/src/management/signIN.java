@@ -245,7 +245,7 @@ public class signIN extends javax.swing.JFrame implements frame {
     }//GEN-LAST:event_buttonMouseExited
 
     private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
-
+            String name1=null;
         try {
             st = (Statement) conn.createStatement();
             String query = "SELECT *\n"
@@ -255,24 +255,32 @@ public class signIN extends javax.swing.JFrame implements frame {
             rs.next();
             String name = rs.getString("UserName");
             String pass = rs.getString("Password");
-
+            String Id = rs.getString("UserID");
+             name1 = rs.getString("FirstName");
+            DName = LName.getText();
+            id = Id;
             Dashboard d1 = new Dashboard();
             d1.setVisible(true);
             System.out.println("Accept");
+            name1=name1+" Successfully Log IN";
+        JOptionPane.showMessageDialog(null, name1,"Hey!",1);
+
             this.dispose();
+
         } catch (Exception e) {
             System.out.println("Wrong");
             JOptionPane.showMessageDialog(null, "You don't have any account!", "Wrong", 0);
             LName.setText(null);
             LPass.setText(null);
-
         }
+        
 
 
     }//GEN-LAST:event_buttonMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        ca1.setVisible(true);
+        createAc a = new createAc();
+        a.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseClicked
 
@@ -287,13 +295,13 @@ public class signIN extends javax.swing.JFrame implements frame {
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void LPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LPassKeyPressed
-      
-            // TODO add your handling code here:
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_LPassKeyPressed
 
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -325,7 +333,7 @@ public class signIN extends javax.swing.JFrame implements frame {
             }
         });
     }
-
+    public static String DName, id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField LName;
     private javax.swing.JPasswordField LPass;

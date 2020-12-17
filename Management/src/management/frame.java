@@ -10,11 +10,12 @@ package management;
  * @author Hello iT
  */
 public interface frame {
-       Dashboard d1 = new Dashboard();
+        Dashboard d1 = new Dashboard();
         Report r1 = new Report();
         createAc ca1 = new createAc();
         About ab1 = new About();
         signIN sg = new signIN();
+        NewJFrame1 fnc = new NewJFrame1();
         
         
 }
