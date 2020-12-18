@@ -389,7 +389,7 @@ public class About1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseClicked
-        Dashboard d = new Dashboard();
+        Dashboard_admin d = new Dashboard_admin();
         d.setVisible(true);
         this.dispose();
         // TODO add your handling code here:
@@ -463,8 +463,8 @@ public class About1 extends javax.swing.JFrame {
 
     private void Log_OutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseEntered
         // TODO add your handling code here:
-           indicator5.setBackground(new Color(0, 0, 0));
-        Log_Out.setBackground(new Color(247,59,63));
+        indicator5.setBackground(new Color(0, 0, 0));
+        Log_Out.setBackground(new Color(247, 59, 63));
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_Log_OutMouseEntered

@@ -17,23 +17,25 @@ import javax.swing.JOptionPane;
  * @author Hello iT
  */
 public class homemate extends javax.swing.JFrame implements frame {
-Connection conn = null;
+
+    Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     Statement st;
+
     /**
      * Creates new form about
      */
     public homemate() {
         initComponents();
         conn = databaseConnection.connectdb();
-        
-        String query = "SELECT CONCAT(FirstName, ' ', LastName) as fullname FROM userinfo";
-        
+
+        String query = "SELECT CONCAT(FirstName, ' ', LastName) as fullname FROM userinfo where UserID !=6";
+        String query1 = "SELECT COUNT(UserID)\n"
+                + "FROM userinfo where UserID != 6";
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
-
 
             rs.next();
             user1.setText(rs.getString("fullname"));
@@ -51,10 +53,24 @@ Connection conn = null;
             user7.setText(rs.getString("fullname"));
             rs.next();
             user8.setText(rs.getString("fullname"));
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}}
-    
+            rs.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            System.out.println("d");
+        }
+        try {
+
+            rs = st.executeQuery(query1);
+            rs.next();
+            int t_Member = rs.getInt(1);
+            System.out.println(t_Member);
+            N_Mem.setText(Integer.toString(t_Member));
+            M_Remain.setText(Integer.toString(8-t_Member));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,17 +110,17 @@ Connection conn = null;
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        MQuan = new javax.swing.JLabel();
-        GivenCost = new javax.swing.JLabel();
-        TMealCost = new javax.swing.JLabel();
-        TNetCost = new javax.swing.JLabel();
-        MealQuanValue = new javax.swing.JLabel();
-        Send_moneyValue = new javax.swing.JLabel();
-        MealCostValue = new javax.swing.JLabel();
-        Net_amountValue = new javax.swing.JLabel();
+        N_Mem = new javax.swing.JLabel();
+        M_Remain = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        MQuan1 = new javax.swing.JLabel();
+        GivenCost1 = new javax.swing.JLabel();
+        TMealCost1 = new javax.swing.JLabel();
+        TNetCost1 = new javax.swing.JLabel();
+        MealQuanValue1 = new javax.swing.JLabel();
+        Send_moneyValue1 = new javax.swing.JLabel();
+        MealCostValue1 = new javax.swing.JLabel();
+        Net_amountValue1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -151,7 +167,7 @@ Connection conn = null;
             .addGroup(dashboardBoxLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(dash)
-                .addGap(0, 123, Short.MAX_VALUE))
+                .addGap(0, 86, Short.MAX_VALUE))
             .addGroup(dashboardBoxLayout.createSequentialGroup()
                 .addComponent(indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(225, 225, 225))
@@ -481,22 +497,26 @@ Connection conn = null;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(user1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                    .addComponent(user2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(user3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addComponent(user2, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(user1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(user3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(user5, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(user5, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(user8, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(user7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(user6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(user8, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(user7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(user6, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -506,96 +526,104 @@ Connection conn = null;
                     .addComponent(user1)
                     .addComponent(user4)
                     .addComponent(user7))
-                .addGap(107, 107, 107)
+                .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(user2)
                     .addComponent(user5)
                     .addComponent(user8))
-                .addGap(106, 106, 106)
+                .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(user3)
                     .addComponent(user6))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(1, 122, 255));
-        jLabel2.setText(" Home  Mate");
+        jLabel2.setText("Home Mate");
 
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setText("Number of Member: ");
 
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel14.setText("Member Remain:");
+        jLabel14.setText("Seat Available:");
 
-        jLabel1.setText("jLabel1");
+        N_Mem.setText("0.00");
 
-        jLabel5.setText("jLabel5");
+        M_Remain.setText("0.00");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        MQuan.setText("Meal Quantity");
+        MQuan1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MQuan1.setText("Meal Quantity");
 
-        GivenCost.setText("Given Cost");
+        GivenCost1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        GivenCost1.setText("Given Cost");
 
-        TMealCost.setText("Total Meal Cost");
+        TMealCost1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TMealCost1.setText("Total Meal Cost");
 
-        TNetCost.setText("Total Net Cost");
+        TNetCost1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TNetCost1.setText("Total Net Cost");
 
-        MealQuanValue.setText("00.00");
+        MealQuanValue1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MealQuanValue1.setText("00.00");
 
-        Send_moneyValue.setText("00.00");
+        Send_moneyValue1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Send_moneyValue1.setText("00.00");
 
-        MealCostValue.setText("00.00");
+        MealCostValue1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MealCostValue1.setText("00.00");
 
-        Net_amountValue.setBackground(new java.awt.Color(0, 153, 255));
-        Net_amountValue.setText("00.00");
+        Net_amountValue1.setBackground(new java.awt.Color(0, 153, 255));
+        Net_amountValue1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Net_amountValue1.setText("00.00");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MQuan)
-                    .addComponent(TNetCost)
-                    .addComponent(TMealCost)
-                    .addComponent(GivenCost))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Send_moneyValue, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MealQuanValue, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(26, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MQuan1)
+                    .addComponent(TNetCost1)
+                    .addComponent(TMealCost1)
+                    .addComponent(GivenCost1))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Send_moneyValue1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MealQuanValue1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(MealCostValue, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                            .addComponent(Net_amountValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MealCostValue1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(Net_amountValue1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MQuan)
-                    .addComponent(MealQuanValue))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GivenCost)
-                    .addComponent(Send_moneyValue))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TMealCost)
-                    .addComponent(MealCostValue))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TNetCost)
-                    .addComponent(Net_amountValue))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MQuan1)
+                    .addComponent(MealQuanValue1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GivenCost1)
+                    .addComponent(Send_moneyValue1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TMealCost1)
+                    .addComponent(MealCostValue1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TNetCost1)
+                    .addComponent(Net_amountValue1))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -604,46 +632,47 @@ Connection conn = null;
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(275, 275, 275)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
+                                .addGap(77, 77, 77)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel14))
-                                .addGap(55, 55, 55)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel1))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(N_Mem, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                                    .addComponent(M_Remain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(265, 265, 265)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(1393, 1393, 1393))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1393, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel2)
-                        .addGap(57, 57, 57)
+                        .addGap(73, 73, 73)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
+                            .addComponent(N_Mem))
+                        .addGap(9, 9, 9)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel5)))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37)
+                            .addComponent(M_Remain)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(65, 65, 65)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -772,224 +801,253 @@ Connection conn = null;
     private void user1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user1MouseEntered
         user1.setForeground(new Color(1, 122, 255));
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 1";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}
-    
-                                     
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
 
     }//GEN-LAST:event_user1MouseEntered
 
     private void user1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user1MouseExited
-        user1.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user1.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user1MouseExited
 
     private void user2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user2MouseEntered
         user2.setForeground(new Color(1, 122, 255));
-        user1.setForeground(new Color(1, 122, 255));
+
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 2";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_user2MouseEntered
 
     private void user2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user2MouseExited
-        user2.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user2.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user2MouseExited
 
     private void user3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user3MouseEntered
         user3.setForeground(new Color(1, 122, 255));
-user1.setForeground(new Color(1, 122, 255));
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 3";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}// TODO add your handling code here:
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_user3MouseEntered
 
     private void user3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user3MouseExited
-       user3.setForeground(new Color(0,0,0)); // TODO add your handling code here:
+        user3.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+        // TODO add your handling code here:
     }//GEN-LAST:event_user3MouseExited
 
     private void user4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user4MouseEntered
         user4.setForeground(new Color(1, 122, 255));
-user1.setForeground(new Color(1, 122, 255));
+
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 4";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}// TODO add your handling code here:
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_user4MouseEntered
 
     private void user4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user4MouseExited
-        user4.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user4.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user4MouseExited
 
     private void user5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user5MouseEntered
-       user5.setForeground(new Color(1, 122, 255)); 
-user1.setForeground(new Color(1, 122, 255));
+        user5.setForeground(new Color(1, 122, 255));
+
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 5";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}// TODO add your handling code here:
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_user5MouseEntered
 
     private void user5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user5MouseExited
-        user5.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user5.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user5MouseExited
 
     private void user6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user6MouseEntered
-       user6.setForeground(new Color(1, 122, 255)); 
-user1.setForeground(new Color(1, 122, 255));
+        user6.setForeground(new Color(1, 122, 255));
+
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 6";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}// TODO add your handling code here:
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_user6MouseEntered
 
     private void user6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user6MouseExited
-        user6.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user6.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user6MouseExited
 
     private void user7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user7MouseEntered
         user7.setForeground(new Color(1, 122, 255));
-        user1.setForeground(new Color(1, 122, 255));
+
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 7";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_user7MouseEntered
 
     private void user7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user7MouseExited
-        user7.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user7.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user7MouseExited
 
     private void user8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user8MouseEntered
         user8.setForeground(new Color(1, 122, 255));
-user1.setForeground(new Color(1, 122, 255));
+
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 8";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
-
             rs.next();
-            MealQuanValue.setText(rs.getString("MealQuan"));
-            Send_moneyValue.setText(rs.getString("Send_money"));
-            MealCostValue.setText(rs.getString("MealCost"));
-            Net_amountValue.setText(rs.getString("Net_amount"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}// TODO add your handling code here:
+            MealQuanValue1.setText(rs.getString("MealQuan"));
+            Send_moneyValue1.setText(rs.getString("Send_money"));
+            MealCostValue1.setText(rs.getString("MealCost"));
+            Net_amountValue1.setText(rs.getString("Net_amount"));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_user8MouseEntered
 
     private void user8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user8MouseExited
-        user8.setForeground(new Color(0,0,0));// TODO add your handling code here:
+        user8.setForeground(new Color(0, 0, 0));
+        MealQuanValue1.setText("0");
+        Send_moneyValue1.setText("0");
+        MealCostValue1.setText("0");
+        Net_amountValue1.setText("0");
+// TODO add your handling code here:
     }//GEN-LAST:event_user8MouseExited
 
     private void user1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user1MouseClicked
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 1";
-        
+
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
-
 
             rs.next();
             MQuan.setText(rs.getString("Send_money"));
             GivenCost.setText(rs.getString("Send_money"));
             TMealCost.setText(rs.getString("Send_money"));
             TNetCost.setText(rs.getString("Send_money"));
-            
-            
-    } catch (Exception ex) {
-            System.out.println(ex);}
-    
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
     }//GEN-LAST:event_user1MouseClicked
 
     /**
@@ -1030,16 +1088,26 @@ user1.setForeground(new Color(1, 122, 255));
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel About;
     private javax.swing.JLabel GivenCost;
+    private javax.swing.JLabel GivenCost1;
     private javax.swing.JPanel Home_Mate;
     private javax.swing.JPanel Log_Out;
     private javax.swing.JLabel Log_Out1;
     private javax.swing.JLabel MQuan;
+    private javax.swing.JLabel MQuan1;
+    private javax.swing.JLabel M_Remain;
     private javax.swing.JLabel MealCostValue;
+    private javax.swing.JLabel MealCostValue1;
     private javax.swing.JLabel MealQuanValue;
+    private javax.swing.JLabel MealQuanValue1;
+    private javax.swing.JLabel N_Mem;
     private javax.swing.JLabel Net_amountValue;
+    private javax.swing.JLabel Net_amountValue1;
     private javax.swing.JLabel Send_moneyValue;
+    private javax.swing.JLabel Send_moneyValue1;
     private javax.swing.JLabel TMealCost;
+    private javax.swing.JLabel TMealCost1;
     private javax.swing.JLabel TNetCost;
+    private javax.swing.JLabel TNetCost1;
     private javax.swing.JLabel about;
     private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboardBox;
@@ -1052,13 +1120,12 @@ user1.setForeground(new Color(1, 122, 255));
     private javax.swing.JPanel indicator6;
     private javax.swing.JPanel indicator7;
     private javax.swing.JLabel j;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel user1;
     private javax.swing.JLabel user2;

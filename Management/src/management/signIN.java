@@ -334,7 +334,7 @@ public class signIN extends javax.swing.JFrame implements frame {
            
 
         } catch (Exception e) {
-            System.out.println("Wrong");
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "You don't have any account! ", "Wrong", 0);
             LName.setText(null);
             LPass.setText(null);
