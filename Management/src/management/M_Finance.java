@@ -432,7 +432,7 @@ public class M_Finance extends javax.swing.JFrame implements frame {
         jLabel6.setText("Meal Quantity: ");
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 28)); // NOI18N
-        jLabel7.setText("Net Total Cost:");
+        jLabel7.setText("Total Nest Cost:");
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 28)); // NOI18N
         jLabel8.setText("Given Money:");
