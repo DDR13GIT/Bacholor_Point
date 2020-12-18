@@ -67,16 +67,12 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
         financesBox = new javax.swing.JPanel();
         fina = new javax.swing.JLabel();
         indicator3 = new javax.swing.JPanel();
-        homemateBox = new javax.swing.JPanel();
-        home = new javax.swing.JLabel();
-        indicator4 = new javax.swing.JPanel();
-        reportBox = new javax.swing.JPanel();
+        about1 = new javax.swing.JPanel();
         report = new javax.swing.JLabel();
         indicator5 = new javax.swing.JPanel();
-        aboutBox = new javax.swing.JPanel();
+        Log_Out = new javax.swing.JPanel();
         about = new javax.swing.JLabel();
         indicator6 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jpanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -113,6 +109,14 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         dashboardBox.setBackground(java.awt.Color.white);
+        dashboardBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardBoxMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardBoxMouseExited(evt);
+            }
+        });
 
         dash.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         dash.setText("Dashboard");
@@ -135,12 +139,10 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
         dashboardBoxLayout.setHorizontalGroup(
             dashboardBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardBoxLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(dash)
-                .addGap(0, 190, Short.MAX_VALUE))
-            .addGroup(dashboardBoxLayout.createSequentialGroup()
                 .addComponent(indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(225, 225, 225))
+                .addGap(36, 36, 36)
+                .addComponent(dash)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         dashboardBoxLayout.setVerticalGroup(
             dashboardBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,66 +200,21 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
             .addComponent(indicator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        homemateBox.setBackground(new java.awt.Color(255, 255, 255));
-        homemateBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homemateBoxMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homemateBoxMouseExited(evt);
-            }
-        });
-
-        home.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        home.setText("Homemate");
-
-        indicator4.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout indicator4Layout = new javax.swing.GroupLayout(indicator4);
-        indicator4.setLayout(indicator4Layout);
-        indicator4Layout.setHorizontalGroup(
-            indicator4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
-        );
-        indicator4Layout.setVerticalGroup(
-            indicator4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout homemateBoxLayout = new javax.swing.GroupLayout(homemateBox);
-        homemateBox.setLayout(homemateBoxLayout);
-        homemateBoxLayout.setHorizontalGroup(
-            homemateBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homemateBoxLayout.createSequentialGroup()
-                .addComponent(indicator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(home)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        homemateBoxLayout.setVerticalGroup(
-            homemateBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homemateBoxLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(home)
-                .addContainerGap())
-            .addComponent(indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        reportBox.setBackground(new java.awt.Color(255, 255, 255));
-        reportBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        about1.setBackground(new java.awt.Color(255, 255, 255));
+        about1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reportBoxMouseClicked(evt);
+                about1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                reportBoxMouseEntered(evt);
+                about1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                reportBoxMouseExited(evt);
+                about1MouseExited(evt);
             }
         });
 
         report.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        report.setText("Report");
+        report.setText("About");
 
         indicator5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -272,40 +229,40 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout reportBoxLayout = new javax.swing.GroupLayout(reportBox);
-        reportBox.setLayout(reportBoxLayout);
-        reportBoxLayout.setHorizontalGroup(
-            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportBoxLayout.createSequentialGroup()
+        javax.swing.GroupLayout about1Layout = new javax.swing.GroupLayout(about1);
+        about1.setLayout(about1Layout);
+        about1Layout.setHorizontalGroup(
+            about1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(about1Layout.createSequentialGroup()
                 .addComponent(indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(34, 34, 34)
                 .addComponent(report)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        reportBoxLayout.setVerticalGroup(
-            reportBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportBoxLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(report)
-                .addContainerGap())
+        about1Layout.setVerticalGroup(
+            about1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(about1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(report)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        aboutBox.setBackground(new java.awt.Color(255, 255, 255));
-        aboutBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        Log_Out.setBackground(new java.awt.Color(255, 255, 255));
+        Log_Out.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aboutBoxMouseClicked(evt);
+                Log_OutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aboutBoxMouseEntered(evt);
+                Log_OutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                aboutBoxMouseExited(evt);
+                Log_OutMouseExited(evt);
             }
         });
 
         about.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        about.setText("About Us");
+        about.setText("Log Out");
 
         indicator6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -320,62 +277,46 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout aboutBoxLayout = new javax.swing.GroupLayout(aboutBox);
-        aboutBox.setLayout(aboutBoxLayout);
-        aboutBoxLayout.setHorizontalGroup(
-            aboutBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutBoxLayout.createSequentialGroup()
+        javax.swing.GroupLayout Log_OutLayout = new javax.swing.GroupLayout(Log_Out);
+        Log_Out.setLayout(Log_OutLayout);
+        Log_OutLayout.setHorizontalGroup(
+            Log_OutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Log_OutLayout.createSequentialGroup()
                 .addComponent(indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(32, 32, 32)
                 .addComponent(about)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        aboutBoxLayout.setVerticalGroup(
-            aboutBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutBoxLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(about)
-                .addContainerGap())
+        Log_OutLayout.setVerticalGroup(
+            Log_OutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(indicator6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Log_OutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(about)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(about1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Log_Out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(dashboardBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(financesBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(homemateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(reportBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(aboutBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(dashboardBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(78, 78, 78)
                 .addComponent(financesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homemateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dashboardBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reportBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(about1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(aboutBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Log_Out, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 702, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
         );
 
         jpanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -475,11 +416,11 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(1, 122, 255));
         jLabel16.setText("Shopping Section");
 
-        jLabel17.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(1, 122, 255));
         jLabel17.setText("Meal Section");
 
@@ -662,7 +603,7 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
                     .addGroup(jpanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
@@ -698,16 +639,12 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(45, 45, 45)
                         .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
+                        .addGap(284, 284, 284)
                         .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -715,17 +652,16 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel2)
+                        .addGap(37, 37, 37)
+                        .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel2)
-                .addGap(37, 37, 37)
-                .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -745,229 +681,55 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateComboboxMeal() {
-        try {
-            String query = "SELECT *, CONCAT(UserID, ' ', FirstName, ' ', LastName) AS FullName FROM userinfo";
-            pst = conn.prepareStatement(query);
+    private void clearMealMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMealMouseExited
+        ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
+        clearMeal.setIcon(i);         // TODO add your handling code here:
+    }//GEN-LAST:event_clearMealMouseExited
 
-            rs = pst.executeQuery();
-            while (rs.next()) {
-                String name = rs.getString("FullName");
-                Name_Meal.addItem(name);
-                MemberName_shop.addItem(name);
+    private void clearMealMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMealMouseEntered
+        ImageIcon i = new ImageIcon(getClass().getResource("clear (2).png"));
+        clearMeal.setIcon(i); // TODO add your handling code here:
+    }//GEN-LAST:event_clearMealMouseEntered
 
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-    }
+    private void clearMealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMealMouseClicked
+        JOptionPane.showMessageDialog(null, "Clear Meal Section", "Hey", 1);
+        MealQ.setText(null);// TODO add your handling code here:
+    }//GEN-LAST:event_clearMealMouseClicked
 
-    private void financesBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseEntered
+    private void clearShopMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearShopMouseExited
+        ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
+        clearShop.setIcon(i);         // TODO add your handling code here:
+    }//GEN-LAST:event_clearShopMouseExited
+
+    private void clearShopMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearShopMouseEntered
+        ImageIcon i = new ImageIcon(getClass().getResource("clear (2).png"));
+        clearShop.setIcon(i);         // TODO add your handling code here:
+    }//GEN-LAST:event_clearShopMouseEntered
+
+    private void clearShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearShopMouseClicked
+        JOptionPane.showMessageDialog(null, "Clear Shop Section", "Hey!", 1);
+        Amount.setText(null);
+        ShopItemName.setText(null);
+        AddCost.setText(null);
+        AddItem.setText(null);
+        AddItem.setText("Nothing");
+        AddCost.setText("0");
         // TODO add your handling code here:
-        indicator3.setBackground(new Color(0, 0, 0));
-        financesBox.setBackground(new Color(232, 232, 232));
-        //fina.setForeground(new Color(1,122,232));
-        // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_financesBoxMouseEntered
+    }//GEN-LAST:event_clearShopMouseClicked
 
-    private void financesBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseExited
-        // TODO add your handling code here:
-        indicator3.setBackground(new Color(255, 255, 255));
-        financesBox.setBackground(new Color(255, 255, 255));
-        // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_financesBoxMouseExited
+    private void calculateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calculateMouseExited
+        ImageIcon i = new ImageIcon(getClass().getResource("calculate (2).png"));
+        calculate.setIcon(i);           // TODO add your handling code here:
+    }//GEN-LAST:event_calculateMouseExited
 
-    private void homemateBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseEntered
-        // TODO add your handling code here:
-        indicator4.setBackground(new Color(0, 0, 0));
-        homemateBox.setBackground(new Color(232, 232, 232));
-        //fina.setForeground(new Color(1,122,232));
-        // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_homemateBoxMouseEntered
-
-    private void homemateBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemateBoxMouseExited
-        // TODO add your handling code here:
-        indicator4.setBackground(new Color(255, 255, 255));
-        homemateBox.setBackground(new Color(255, 255, 255));
-        // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_homemateBoxMouseExited
-
-    private void reportBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseClicked
-        r1.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_reportBoxMouseClicked
-
-    private void reportBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseEntered
-        // TODO add your handling code here:
-        indicator5.setBackground(new Color(0, 0, 0));
-        reportBox.setBackground(new Color(232, 232, 232));
-        //fina.setForeground(new Color(1,122,232));
-        // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_reportBoxMouseEntered
-
-    private void reportBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportBoxMouseExited
-        // TODO add your handling code here:
-        indicator5.setBackground(new Color(255, 255, 255));
-        reportBox.setBackground(new Color(255, 255, 255));
-        // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_reportBoxMouseExited
-
-    private void aboutBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseClicked
-        // TODO add your handling code here:
-        ab1.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_aboutBoxMouseClicked
-
-    private void aboutBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseEntered
-        // TODO add your handling code here:
-        indicator6.setBackground(new Color(0, 0, 0));
-        aboutBox.setBackground(new Color(232, 232, 232));
-        //fina.setForeground(new Color(1,122,232));
-        // fina.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_aboutBoxMouseEntered
-
-    private void aboutBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBoxMouseExited
-        // TODO add your handling code here:
-        indicator6.setBackground(new Color(255, 255, 255));
-        aboutBox.setBackground(new Color(255, 255, 255));
-        // fina.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_aboutBoxMouseExited
-
-    private void AddCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCostActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddCostActionPerformed
-
-    private void ShopItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShopItemNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ShopItemNameActionPerformed
-
-    private void MemberName_shopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemberName_shopActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MemberName_shopActionPerformed
-
-    private void AmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AmountActionPerformed
-
-    private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddItemActionPerformed
-
-    private void MealQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MealQActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MealQActionPerformed
-
-    private void Name_MealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_MealActionPerformed
-
-    }//GEN-LAST:event_Name_MealActionPerformed
-
-    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateActionPerformed
-
-    private void Name_MealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Name_MealMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Name_MealMouseClicked
-
-    private void MealSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealSubmitMouseClicked
-        if ( MealQ.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Field remaining", "Warning", 0);
-        } else {
-            
-        
-        String getComboName = Name_Meal.getSelectedItem().toString();
-        getComboName = getComboName.substring(0, 2);
-        int getID;
-        try {
-            getID = Integer.parseInt(getComboName);
-            System.out.println(getID);
-        } catch (Exception e) {
-            getComboName = getComboName.substring(0, 1);
-            getID = Integer.parseInt(getComboName);
-            System.out.println(getID);
-        }
-
-        String query = "SELECT MealQuan\n"
-                + "FROM userinfo\n"
-                + "WHERE UserID= '" + getID + "'\n";
-        try {
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
-            rs.next();
-            String m = rs.getString("MealQuan");
-            System.out.println(m);
-            int meal = Integer.parseInt(m) + Integer.parseInt(MealQ.getText());
-            System.out.println("New Meal " + meal);
-
-            query = "UPDATE userinfo\n"
-                    + "SET MealQuan='" + meal + "'\n"
-                    + "WHERE UserID ='" + getID + "'";
-            st.executeUpdate(query);
-            MealQ.setText(null);
-        } catch (SQLException ex) {
-
-        }}
-    
-    }//GEN-LAST:event_MealSubmitMouseClicked
-
-    private void ShopSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShopSubmitMouseClicked
-
-        if ( date.getText().isEmpty() || Amount.getText().isEmpty() ||ShopItemName.getText().isEmpty() ) {
-            JOptionPane.showMessageDialog(null, "Field remaining", "Warning", 0);
-        } else {
-          
-            String getComboName2 = MemberName_shop.getSelectedItem().toString();
-        String getComboName1 = getComboName2.substring(2, getComboName2.length());
-        getComboName2 = getComboName2.substring(0, 2);
-        int getID;
-        try {
-            getID = Integer.parseInt(getComboName2);
-            System.out.println(getID);
-        } catch (Exception e) {
-            getComboName2 = getComboName2.substring(0, 1);
-            getID = Integer.parseInt(getComboName2);
-            System.out.println(getID);
-        }
-        String query = "SELECT Send_money\n"
-                + "FROM userinfo\n"
-                + "WHERE UserID='" + getID + "'";
-
-
-        System.out.println(Date);
-        try {
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
-            rs.next();
-            double amnt = rs.getDouble("Send_money");
-            System.out.println(amnt);
-            amnt = amnt + Double.parseDouble(Amount.getText());
-            System.out.println(amnt);
-            query = "UPDATE userinfo\n"
-                    + "SET Send_money='" + amnt + "'\n"
-                    + "WHERE UserID='" + getID + "'";
-            st.executeUpdate(query);
-
-            String query1 = "INSERT INTO finance(Date, Name, ItemName, Amount, A_Name) \n"
-                    + "VALUES ('" + Date + "','" + getComboName1 + "','" + ShopItemName.getText() + "','" + Amount.getText() + "','" + AddItem.getText() + "')";
-            st.executeUpdate(query1);
-
-            query1 = "UPDATE additional\n"
-                    + "SET A_Cost='" + AddCost.getText() + "' WHERE 1";
-            
-            st.executeUpdate(query1);
-            Amount.setText(null);
-            ShopItemName.setText(null);
-            AddCost.setText(null);
-            AddItem.setText(null);
-            
-        } catch (Exception e) {
-            System.out.println(e);
-        }}
-    }//GEN-LAST:event_ShopSubmitMouseClicked
+    private void calculateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calculateMouseEntered
+        ImageIcon i = new ImageIcon(getClass().getResource("calculate (1).png"));
+        calculate.setIcon(i);     // TODO add your handling code here:
+    }//GEN-LAST:event_calculateMouseEntered
 
     private void calculateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calculateMouseClicked
-        
-         String query = "SELECT SUM(MealQuan),SUM(Send_money),COUNT(UserID)\n"
+
+        String query = "SELECT SUM(MealQuan),SUM(Send_money),COUNT(UserID)\n"
                 + "FROM userinfo\n"
                 + "WHERE userID>=1";
 
@@ -997,102 +759,281 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
             double Id[] = new double[totalId];
             double total[] = new double[totalId];
             double netAmount[] = new double[totalId];
-            double amnt[]= new double[totalId];
-            
+            double amnt[] = new double[totalId];
 
             for (int i = 0; i < totalId; i++) {
                 rs.next();
                 Meal[i] = rs.getDouble("MealQuan");
                 Id[i] = rs.getDouble("userID");
-                amnt[i]=rs.getDouble("Send_money");
+                amnt[i] = rs.getDouble("Send_money");
                 total[i] = Meal[i] * mealPerCost;
-                netAmount[i]=amnt[i]-total[i];
-                
+                netAmount[i] = amnt[i] - total[i];
 
             }
 
             for (int i = 0; i < totalId; i++) {
                 String query1 = "UPDATE userinfo\n"
                         + "SET MealCost='" + total[i] + "',\n"
-                        +"Net_amount='"+netAmount[i]+"'\n"
+                        + "Net_amount='" + netAmount[i] + "'\n"
                         + "WHERE UserID ='" + Id[i] + "'";
-//                System.out.println(Meal[i]);
-//                System.out.println(Id[i]);
+                //                System.out.println(Meal[i]);
+                //                System.out.println(Id[i]);
                 st.executeUpdate(query1);
                 System.out.println(total[i]);
                 Amount.setText(null);
-            ShopItemName.setText(null);
-            AddCost.setText(null);
-            AddItem.setText(null);
-            MealQ.setText(null);
+                ShopItemName.setText(null);
+                AddItem.setText("Nothing");
+                AddCost.setText("0");
+                MealQ.setText(null);
+
             }
+            JOptionPane.showMessageDialog(null, "Successfully Calculated! ", "Hey", 0);
 
         } catch (Exception e) {
             System.out.println(e);
         }
-        
     }//GEN-LAST:event_calculateMouseClicked
+
+    private void MealSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealSubmitMouseExited
+        ImageIcon i = new ImageIcon(getClass().getResource("submit_default.png"));
+        MealSubmit.setIcon(i);
+    }//GEN-LAST:event_MealSubmitMouseExited
 
     private void MealSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealSubmitMouseEntered
         ImageIcon i = new ImageIcon(getClass().getResource("submit_hover.png"));
         MealSubmit.setIcon(i);
     }//GEN-LAST:event_MealSubmitMouseEntered
 
-    private void MealSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealSubmitMouseExited
-        ImageIcon i = new ImageIcon(getClass().getResource("submit_default.png"));
-        MealSubmit.setIcon(i);     
-    }//GEN-LAST:event_MealSubmitMouseExited
+    private void MealSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealSubmitMouseClicked
 
-    private void ShopSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShopSubmitMouseEntered
-        ImageIcon i = new ImageIcon(getClass().getResource("submit_hover.png"));
-        ShopSubmit.setIcon(i);        // TODO add your handling code here:
-    }//GEN-LAST:event_ShopSubmitMouseEntered
+        if (MealQ.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Field remaining", "Warning", 0);
+        } else {
+            JOptionPane.showMessageDialog(null, "Successfully Save In DataBase", "Hey!", 0);
+            String getComboName = Name_Meal.getSelectedItem().toString();
+            getComboName = getComboName.substring(0, 2);
+            int getID;
+            try {
+                getID = Integer.parseInt(getComboName);
+                System.out.println(getID);
+            } catch (Exception e) {
+                getComboName = getComboName.substring(0, 1);
+                getID = Integer.parseInt(getComboName);
+                System.out.println(getID);
+            }
+
+            String query = "SELECT MealQuan\n"
+                    + "FROM userinfo\n"
+                    + "WHERE UserID= '" + getID + "'\n";
+            try {
+                st = conn.createStatement();
+                rs = st.executeQuery(query);
+                rs.next();
+                String m = rs.getString("MealQuan");
+                System.out.println(m);
+                int meal = Integer.parseInt(m) + Integer.parseInt(MealQ.getText());
+                System.out.println("New Meal " + meal);
+
+                query = "UPDATE userinfo\n"
+                        + "SET MealQuan='" + meal + "'\n"
+                        + "WHERE UserID ='" + getID + "'";
+                st.executeUpdate(query);
+                MealQ.setText(null);
+            } catch (SQLException ex) {
+
+            }
+        }
+    }//GEN-LAST:event_MealSubmitMouseClicked
 
     private void ShopSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShopSubmitMouseExited
         ImageIcon i = new ImageIcon(getClass().getResource("submit_default.png"));
         ShopSubmit.setIcon(i);        // TODO add your handling code here:
     }//GEN-LAST:event_ShopSubmitMouseExited
 
-    private void calculateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calculateMouseEntered
-      ImageIcon i = new ImageIcon(getClass().getResource("calculate (1).png"));
-        calculate.setIcon(i);     // TODO add your handling code here:
-    }//GEN-LAST:event_calculateMouseEntered
+    private void ShopSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShopSubmitMouseEntered
+        ImageIcon i = new ImageIcon(getClass().getResource("submit_hover.png"));
+        ShopSubmit.setIcon(i);        // TODO add your handling code here:
+    }//GEN-LAST:event_ShopSubmitMouseEntered
 
-    private void calculateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calculateMouseExited
-    ImageIcon i = new ImageIcon(getClass().getResource("calculate (2).png"));
-        calculate.setIcon(i);           // TODO add your handling code here:
-    }//GEN-LAST:event_calculateMouseExited
+    private void ShopSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShopSubmitMouseClicked
 
-    private void clearMealMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMealMouseEntered
-        ImageIcon i = new ImageIcon(getClass().getResource("clear (2).png"));
-        clearMeal.setIcon(i); // TODO add your handling code here:
-    }//GEN-LAST:event_clearMealMouseEntered
+        if (date.getText().isEmpty() || Amount.getText().isEmpty() || ShopItemName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Field remaining", "Warning", 0);
+        } else {
 
-    private void clearMealMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMealMouseExited
-ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
-        clearMeal.setIcon(i);         // TODO add your handling code here:
-    }//GEN-LAST:event_clearMealMouseExited
+            String getComboName2 = MemberName_shop.getSelectedItem().toString();
+            String getComboName1 = getComboName2.substring(2, getComboName2.length());
+            getComboName2 = getComboName2.substring(0, 2);
+            int getID;
+            try {
+                getID = Integer.parseInt(getComboName2);
+                System.out.println(getID);
+            } catch (Exception e) {
+                getComboName2 = getComboName2.substring(0, 1);
+                getID = Integer.parseInt(getComboName2);
+                System.out.println(getID);
+            }
+            String query = "SELECT Send_money\n"
+                    + "FROM userinfo\n"
+                    + "WHERE UserID='" + getID + "'";
 
-    private void clearShopMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearShopMouseEntered
-ImageIcon i = new ImageIcon(getClass().getResource("clear (2).png"));
-        clearShop.setIcon(i);         // TODO add your handling code here:
-    }//GEN-LAST:event_clearShopMouseEntered
+            System.out.println(Date);
+            try {
+                st = conn.createStatement();
+                rs = st.executeQuery(query);
+                rs.next();
+                double amnt = rs.getDouble("Send_money");
+                System.out.println(amnt);
+                amnt = amnt + Double.parseDouble(Amount.getText());
+                System.out.println(amnt);
+                query = "UPDATE userinfo\n"
+                        + "SET Send_money='" + amnt + "'\n"
+                        + "WHERE UserID='" + getID + "'";
+                st.executeUpdate(query);
 
-    private void clearShopMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearShopMouseExited
-ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
-        clearShop.setIcon(i);         // TODO add your handling code here:
-    }//GEN-LAST:event_clearShopMouseExited
+                String query1 = "INSERT INTO finance(Date, Name, ItemName, Amount, A_Name) \n"
+                        + "VALUES ('" + Date + "','" + getComboName1 + "','" + ShopItemName.getText() + "','" + Amount.getText() + "','" + AddItem.getText() + "')";
+                st.executeUpdate(query1);
 
-    private void clearMealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMealMouseClicked
-        MealQ.setText(null);// TODO add your handling code here:
-    }//GEN-LAST:event_clearMealMouseClicked
+                query1 = "UPDATE additional\n"
+                        + "SET A_Cost='" + AddCost.getText() + "' WHERE 1";
 
-    private void clearShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearShopMouseClicked
-             Amount.setText(null);
-            ShopItemName.setText(null);
-            AddCost.setText(null);
-            AddItem.setText(null);  // TODO add your handling code here:
-    }//GEN-LAST:event_clearShopMouseClicked
+                st.executeUpdate(query1);
+                MealQ.setText(null);
+                Amount.setText(null);
+                ShopItemName.setText(null);
+
+                AddItem.setText("Nothing");
+                AddCost.setText("0");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_ShopSubmitMouseClicked
+
+    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateActionPerformed
+
+    private void Name_MealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_MealActionPerformed
+
+    }//GEN-LAST:event_Name_MealActionPerformed
+
+    private void Name_MealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Name_MealMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name_MealMouseClicked
+
+    private void MealQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MealQActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MealQActionPerformed
+
+    private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddItemActionPerformed
+
+    private void AmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AmountActionPerformed
+
+    private void MemberName_shopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemberName_shopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MemberName_shopActionPerformed
+
+    private void ShopItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShopItemNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ShopItemNameActionPerformed
+
+    private void AddCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddCostActionPerformed
+
+    private void Log_OutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseExited
+        // TODO add your handling code here:
+        indicator6.setBackground(new Color(255, 255, 255));
+        Log_Out.setBackground(new Color(255, 255, 255));
+        // fina.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_Log_OutMouseExited
+
+    private void Log_OutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseEntered
+        indicator6.setBackground(new Color(0, 0, 0));
+        Log_Out.setBackground(new Color(247, 59, 63));
+        //fina.setForeground(Color.white);
+    }//GEN-LAST:event_Log_OutMouseEntered
+
+    private void Log_OutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Log Out From Your Account!", "Hey", 1);
+        signIN.id = null;
+        signIN s = new signIN();
+        s.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Log_OutMouseClicked
+
+    private void about1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about1MouseExited
+        // TODO add your handling code here:
+        indicator5.setBackground(new Color(255, 255, 255));
+        about1.setBackground(new Color(255, 255, 255));
+        // fina.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_about1MouseExited
+
+    private void about1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about1MouseEntered
+        // TODO add your handling code here:
+        indicator5.setBackground(new Color(0, 0, 0));
+        about1.setBackground(new Color(232, 232, 232));
+        //fina.setForeground(new Color(1,122,232));
+        // fina.setForeground(new Color(0,0,0));
+    }//GEN-LAST:event_about1MouseEntered
+
+    private void about1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about1MouseClicked
+        About1 r1 = new About1();
+        r1.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_about1MouseClicked
+
+    private void financesBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseExited
+        // TODO add your handling code here:
+//        indicator3.setBackground(new Color(255, 255, 255));
+//        financesBox.setBackground(new Color(255, 255, 255));
+        // fina.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_financesBoxMouseExited
+
+    private void financesBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseEntered
+        // TODO add your handling code here:
+//        indicator3.setBackground(new Color(0, 0, 0));
+//        financesBox.setBackground(new Color(232, 232, 232));
+        //fina.setForeground(new Color(1,122,232));
+        // fina.setForeground(new Color(0,0,0));
+    }//GEN-LAST:event_financesBoxMouseEntered
+
+    private void dashboardBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseEntered
+        // TODO add your handling code here:
+        indicator2.setBackground(new Color(0, 0, 0));
+        dashboardBox.setBackground(new Color(232, 232, 232));
+    }//GEN-LAST:event_dashboardBoxMouseEntered
+
+    private void dashboardBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseExited
+        // TODO add your handling code here:
+        indicator2.setBackground(new Color(255, 255, 255));
+        dashboardBox.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_dashboardBoxMouseExited
+
+    private void updateComboboxMeal() {
+        try {
+            String query = "SELECT *, CONCAT(UserID, ' ', FirstName, ' ', LastName) AS FullName FROM userinfo";
+            pst = conn.prepareStatement(query);
+
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("FullName");
+                Name_Meal.addItem(name);
+                MemberName_shop.addItem(name);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -1133,6 +1074,7 @@ ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
     private javax.swing.JTextField AddCost;
     private javax.swing.JTextField AddItem;
     private javax.swing.JTextField Amount;
+    private javax.swing.JPanel Log_Out;
     private javax.swing.JTextField MealQ;
     private javax.swing.JLabel MealSubmit;
     private javax.swing.JComboBox<String> MemberName_shop;
@@ -1140,7 +1082,7 @@ ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
     private javax.swing.JTextField ShopItemName;
     private javax.swing.JLabel ShopSubmit;
     private javax.swing.JLabel about;
-    private javax.swing.JPanel aboutBox;
+    private javax.swing.JPanel about1;
     private javax.swing.JLabel calculate;
     private javax.swing.JLabel clearMeal;
     private javax.swing.JLabel clearShop;
@@ -1149,11 +1091,8 @@ ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
     private javax.swing.JTextField date;
     private javax.swing.JLabel fina;
     private javax.swing.JPanel financesBox;
-    private javax.swing.JLabel home;
-    private javax.swing.JPanel homemateBox;
     private javax.swing.JPanel indicator2;
     private javax.swing.JPanel indicator3;
-    private javax.swing.JPanel indicator4;
     private javax.swing.JPanel indicator5;
     private javax.swing.JPanel indicator6;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -1168,13 +1107,11 @@ ImageIcon i = new ImageIcon(getClass().getResource("clear (1).png"));
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel jpanel3;
     private javax.swing.JLabel report;
-    private javax.swing.JPanel reportBox;
     // End of variables declaration//GEN-END:variables
 }

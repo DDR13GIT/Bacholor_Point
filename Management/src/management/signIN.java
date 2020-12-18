@@ -47,12 +47,14 @@ public class signIN extends javax.swing.JFrame implements frame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         LName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        User = new javax.swing.JLabel();
+        Pass = new javax.swing.JLabel();
         LPass = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         button = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        Admin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log In");
@@ -109,23 +111,39 @@ public class signIN extends javax.swing.JFrame implements frame {
         LName.setForeground(new java.awt.Color(51, 51, 51));
         LName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         LName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        LName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LNameMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LNameMouseExited(evt);
+            }
+        });
         LName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LNameActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(1, 122, 255));
-        jLabel4.setText("User Name");
+        User.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
+        User.setForeground(new java.awt.Color(1, 122, 255));
+        User.setText("User Name");
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(1, 122, 255));
-        jLabel5.setText("Password");
+        Pass.setFont(new java.awt.Font("Calibri", 0, 17)); // NOI18N
+        Pass.setForeground(new java.awt.Color(1, 122, 255));
+        Pass.setText("Password");
 
         LPass.setForeground(new java.awt.Color(51, 51, 51));
         LPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         LPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        LPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LPassMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LPassMouseExited(evt);
+            }
+        });
         LPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 LPassKeyPressed(evt);
@@ -163,6 +181,20 @@ public class signIN extends javax.swing.JFrame implements frame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(1, 122, 255));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("CLick Here");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        Admin.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        Admin.setForeground(new java.awt.Color(1, 122, 255));
+        Admin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Admin.setText("Login for Admin");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -170,37 +202,56 @@ public class signIN extends javax.swing.JFrame implements frame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(433, 433, 433)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
                     .addComponent(LPass)
                     .addComponent(LName)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-                        .addComponent(jLabel7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(User, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(105, 105, 105))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(button))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(257, 257, 257)
+                                .addComponent(button))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(265, 265, 265)
+                                .addComponent(jLabel3)))
+                        .addContainerGap(278, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Admin)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(10, 10, 10)))
+                        .addGap(18, 18, 18))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jLabel3)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addGap(57, 57, 57)
+                .addComponent(User)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(Pass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LPass, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -209,7 +260,7 @@ public class signIN extends javax.swing.JFrame implements frame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -245,7 +296,7 @@ public class signIN extends javax.swing.JFrame implements frame {
     }//GEN-LAST:event_buttonMouseExited
 
     private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
-            String name1=null;
+        String name1 = null;
         try {
             st = (Statement) conn.createStatement();
             String query = "SELECT *\n"
@@ -256,24 +307,38 @@ public class signIN extends javax.swing.JFrame implements frame {
             String name = rs.getString("UserName");
             String pass = rs.getString("Password");
             String Id = rs.getString("UserID");
-             name1 = rs.getString("FirstName");
+            name1 = rs.getString("FirstName");
+            admin = rs.getInt("Admin");
             DName = LName.getText();
             id = Id;
-            Dashboard d1 = new Dashboard();
-            d1.setVisible(true);
-            System.out.println("Accept");
-            name1=name1+" Successfully Log IN";
-        JOptionPane.showMessageDialog(null, name1,"Hey!",1);
+            if (admin == 1&&l==1) {
+                JOptionPane.showMessageDialog(null, "Successfully Enter in Admin Pannel", "Hey!", 1);
+               NewJFrame1 m = new NewJFrame1();
+                m.setVisible(true);
+                this.dispose();
 
-            this.dispose();
+            } else if(admin==0){
+                
+                d=1;
+                name1 = name1 + " Successfully Log IN";
+                JOptionPane.showMessageDialog(null, name1, "Hey!", 1);
+                Dashboard d1 = new Dashboard();
+                d1.setVisible(true);
+                 this.dispose();
+                System.out.println("Accept");
+            }
+            else{
+                 JOptionPane.showMessageDialog(null, "Please Pressed 'Click Here' to go Admin Log In You are in Member Log IN", "Hey!", 1);
+            }
+
+           
 
         } catch (Exception e) {
             System.out.println("Wrong");
-            JOptionPane.showMessageDialog(null, "You don't have any account!", "Wrong", 0);
+            JOptionPane.showMessageDialog(null, "You don't have any account! ", "Wrong", 0);
             LName.setText(null);
             LPass.setText(null);
         }
-        
 
 
     }//GEN-LAST:event_buttonMouseClicked
@@ -298,6 +363,44 @@ public class signIN extends javax.swing.JFrame implements frame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_LPassKeyPressed
+
+    private void LNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LNameMouseClicked
+        // TODO add your handling code here:
+        User.setForeground(Color.BLUE);
+
+    }//GEN-LAST:event_LNameMouseClicked
+
+    private void LPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LPassMouseClicked
+        // TODO add your handling code here:
+        Pass.setForeground(Color.BLUE);
+    }//GEN-LAST:event_LPassMouseClicked
+
+    private void LNameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LNameMouseExited
+        // TODO add your handling code here:
+        User.setForeground(new Color(1, 122, 255));
+    }//GEN-LAST:event_LNameMouseExited
+
+    private void LPassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LPassMouseExited
+        // TODO add your handling code here:
+        Pass.setForeground(new Color(1, 122, 255));
+    }//GEN-LAST:event_LPassMouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        k++;
+        if (k % 2 != 0) {
+            l=1;
+            User.setText("Admin User Name");
+            Pass.setText("Admin Password");
+            Admin.setText(("Login for Member"));
+        } else {
+            l=0;
+            User.setText("User Name");
+            Pass.setText("Password");
+            Admin.setText(("Login for Admin"));
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,15 +437,19 @@ public class signIN extends javax.swing.JFrame implements frame {
         });
     }
     public static String DName, id;
+    public int k = 0, admin = 0,l=0,n=0;
+    public static int d;  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Admin;
     private javax.swing.JTextField LName;
     private javax.swing.JPasswordField LPass;
+    private javax.swing.JLabel Pass;
+    private javax.swing.JLabel User;
     private javax.swing.JLabel button;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

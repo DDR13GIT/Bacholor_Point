@@ -146,11 +146,16 @@ public class M_Finance extends javax.swing.JFrame implements frame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 dashboardBoxMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardBoxMouseExited(evt);
+            }
         });
 
         dash.setBackground(new java.awt.Color(0, 0, 0));
         dash.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         dash.setText("Dashboard");
+
+        indicator2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout indicator2Layout = new javax.swing.GroupLayout(indicator2);
         indicator2.setLayout(indicator2Layout);
@@ -267,7 +272,7 @@ public class M_Finance extends javax.swing.JFrame implements frame {
             homemateBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homemateBoxLayout.createSequentialGroup()
                 .addComponent(indicator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
                 .addComponent(home)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -416,10 +421,10 @@ public class M_Finance extends javax.swing.JFrame implements frame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 771, Short.MAX_VALUE)
+            .addGap(0, 724, Short.MAX_VALUE)
         );
 
-        Welcome.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Welcome.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         Welcome.setForeground(new java.awt.Color(0, 204, 51));
         Welcome.setText("Hey Welcome!");
 
@@ -447,11 +452,11 @@ public class M_Finance extends javax.swing.JFrame implements frame {
         G_Money.setForeground(new java.awt.Color(0, 204, 51));
         G_Money.setText("0");
 
-        F_Name.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        F_Name.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         F_Name.setForeground(new java.awt.Color(1, 122, 255));
         F_Name.setText("First");
 
-        L_Name.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        L_Name.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         L_Name.setForeground(new java.awt.Color(1, 122, 255));
         L_Name.setText("Last");
 
@@ -481,74 +486,74 @@ public class M_Finance extends javax.swing.JFrame implements frame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(dd)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(M_Cost)
-                                    .addComponent(N_Cost)
-                                    .addComponent(M_Ouan))
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel5))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(G_Money)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Welcome)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Welcome)
+                        .addGap(8, 8, 8)
                         .addComponent(F_Name)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(L_Name)))
-                .addContainerGap(6182, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(L_Name)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(dd)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(G_Money)
+                                    .addComponent(M_Cost)
+                                    .addComponent(M_Ouan)
+                                    .addComponent(N_Cost))
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel9))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(Welcome)
-                .addGap(16, 16, 16)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(F_Name)
-                    .addComponent(L_Name))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(M_Ouan)
-                    .addComponent(jLabel5))
-                .addGap(89, 89, 89)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(G_Money)
-                    .addComponent(jLabel9))
-                .addGap(89, 89, 89)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(Welcome)
+                    .addComponent(L_Name)
+                    .addComponent(F_Name))
+                .addGap(149, 149, 149)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(M_Ouan)
+                                    .addComponent(jLabel5))
+                                .addGap(52, 52, 52)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(G_Money))
+                                .addGap(54, 54, 54)
+                                .addComponent(dd))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(M_Cost)
+                                .addComponent(jLabel1)))
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel7))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(dd)
-                        .addComponent(M_Cost)))
-                .addGap(88, 88, 88)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel4)
-                    .addComponent(N_Cost))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(N_Cost)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -929,9 +934,9 @@ public class M_Finance extends javax.swing.JFrame implements frame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -996,13 +1001,14 @@ public class M_Finance extends javax.swing.JFrame implements frame {
         // TODO add your handling code here:
         indicator3.setBackground(new Color(255, 255, 255));
         LogOut.setBackground(new Color(255, 255, 255));
-        // fina.setForeground(new Color(0, 0, 0));
+        fina.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_LogOutMouseExited
 
     private void LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOutMouseEntered
         // TODO add your handling code here:
         indicator3.setBackground(new Color(0, 0, 0));
-        LogOut.setBackground(new Color(232, 232, 232));
+        LogOut.setBackground(new Color(247,59,63));
+        fina.setForeground(Color.white);
         //fina.setForeground(new Color(1,122,232));
         // fina.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_LogOutMouseEntered
@@ -1089,6 +1095,12 @@ public class M_Finance extends javax.swing.JFrame implements frame {
         h.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_financesMouseClicked
+
+    private void dashboardBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardBoxMouseExited
+        // TODO add your handling code here:
+            indicator2.setBackground(new Color(255, 255, 255));
+        dashboardBox.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_dashboardBoxMouseExited
 
     /**
      * @param args the command line arguments

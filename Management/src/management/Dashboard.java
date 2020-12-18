@@ -70,22 +70,21 @@ public class Dashboard extends javax.swing.JFrame implements frame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-                   
-        try {
-             rs = st.executeQuery(query1);
-            while (rs.next()) {
-                BufferedImage im;
-                try {
-                    im = ImageIO.read(rs.getBinaryStream("Picture"));
-                    display_Photo.setIcon(new ImageIcon(im));
-                } catch (IOException ex) {
-                    Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            rs = st.executeQuery(query1);
+//            while (rs.next()) {
+//                BufferedImage im;
+//                try {
+//                    im = ImageIO.read(rs.getBinaryStream("Picture"));
+//                    display_Photo.setIcon(new ImageIcon(im));
+//                } catch (IOException ex) {
+//                    Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     /**
@@ -712,18 +711,18 @@ public class Dashboard extends javax.swing.JFrame implements frame {
     }//GEN-LAST:event_financesBoxMouseEntered
 
     private void AboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMouseClicked
-       About a = new About();
-       a.setVisible(true);
-       this.dispose();
+        About a = new About();
+        a.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_AboutMouseClicked
 
     private void Log_OutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_OutMouseClicked
         // TODO add your handling code here:
-         JOptionPane.showMessageDialog(null, "Log Out From Your Account!", "Hey", 1);
-       signIN.id=null;
-      signIN s = new signIN();
-      s.setVisible(true);
-      this.dispose();
+        JOptionPane.showMessageDialog(null, "Log Out From Your Account!", "Hey", 1);
+        signIN.id = null;
+        signIN s = new signIN();
+        s.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_Log_OutMouseClicked
 
     private void financesBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_financesBoxMouseClicked
