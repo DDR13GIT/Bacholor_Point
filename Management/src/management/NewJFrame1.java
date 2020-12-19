@@ -735,7 +735,8 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
         String query = "SELECT SUM(MealQuan),SUM(Send_money),COUNT(UserID)\n"
                 + "FROM userinfo\n"
                 + "WHERE userID>=1";
-        
+        // Add_Item
+
         try {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
@@ -783,13 +784,23 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
                 //                System.out.println(Id[i]);
                 st.executeUpdate(query1);
                 System.out.println(total[i]);
-                Amount.setText(null);
-                ShopItemName.setText(null);
-                Add_Item.setText("Nothing");
-                Add_Cost.setText("0");
-                MealQ.setText(null);
 
+//                double add = Double.parseDouble(Add_Cost.getText());
+//                String U_query = "SELECT A_Cost\n"
+//                        + "FROM additional\n"
+//                        + "WHERE id =1";
+//                rs = st.executeQuery(U_query);
+//                rs.next();
+//                add +=rs.getDouble("A_Cost");
+//                
+//                U_query = "UPDATE additional SET A_Cost = '"+add+"' WHERE id= 1";
+//                st.executeUpdate(U_query);
             }
+            Amount.setText(null);
+            ShopItemName.setText(null);
+            Add_Item.setText("Nothing");
+            Add_Cost.setText("0");
+            MealQ.setText(null);
             JOptionPane.showMessageDialog(null, "Successfully Calculated! ", "Hey", 0);
 
         } catch (Exception e) {
@@ -876,7 +887,7 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
                 getID = Integer.parseInt(getComboName2);
                 System.out.println(getID);
             }
-            String query = "SELECT Send_money\n"
+            String query = "SELECT *\n"
                     + "FROM userinfo\n"
                     + "WHERE UserID='" + getID + "'";
 
@@ -897,10 +908,21 @@ public class NewJFrame1 extends javax.swing.JFrame implements frame {
                 String query1 = "INSERT INTO finance(Date, Name, ItemName, Amount, A_Name) \n"
                         + "VALUES ('" + Date + "','" + getComboName1 + "','" + ShopItemName.getText() + "','" + Amount.getText() + "','" + Add_Item.getText() + "')";
                 st.executeUpdate(query1);
+                
+                  String query3 = "SELECT *\n"
+                    + "FROM userinfo\n"
+                    + "WHERE UserID='" + getID + "'";
+                  
+                rs = st.executeQuery(query3);
+                rs.next();
+                
+                double add=rs.getDouble("A_Cost");
+                add= add+ Double.parseDouble(Add_Cost.getText());
+                 query1 = "UPDATE userinfo\n"
+                        + "SET A_Cost='" + add + "'\n"
+                        + "WHERE UserID='" + getID + "'";
 
-                query1 = "UPDATE additional\n"
-                        + "SET A_Cost='" + Add_Cost.getText() + "' WHERE 1";
-
+                           
                 st.executeUpdate(query1);
                 MealQ.setText(null);
                 Amount.setText(null);

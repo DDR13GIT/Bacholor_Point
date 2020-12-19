@@ -22,6 +22,7 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
     PreparedStatement pst = null;
     ResultSet rs = null;
     Statement st;
+    static int a[] = new int[8];
 
     /**
      * Creates new form about
@@ -30,8 +31,8 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         initComponents();
         conn = databaseConnection.connectdb();
 
-           String query = "SELECT CONCAT(FirstName, ' ', LastName) as fullname FROM userinfo where UserID !=6";
-           String query1 ="SELECT SUM(Send_money),SUM(MealQuan), SUM(additional.A_Cost),COUNT(UserID) FROM userinfo,additional WHERE id!=6";
+        String query = "SELECT  UserID ,CONCAT(FirstName, ' ', LastName) as fullname FROM userinfo where UserID !=6";
+        String query1 = "SELECT SUM(Send_money),SUM(MealQuan), SUM(additional.A_Cost),COUNT(UserID) FROM userinfo,additional WHERE id!=6";
 
         try {
             st = conn.createStatement();
@@ -39,43 +40,57 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
 
             rs.next();
             user1.setText(rs.getString("fullname"));
+            a[0] = rs.getInt("UserID");
+            System.out.println(a[0]);
             rs.next();
             user2.setText(rs.getString("fullname"));
+            a[1] = rs.getInt("UserID");
+            System.out.println(a[1]);
             rs.next();
             user3.setText(rs.getString("fullname"));
+            a[2] = rs.getInt("UserID");
+            System.out.println(a[2]);
             rs.next();
             user4.setText(rs.getString("fullname"));
+            a[3] = rs.getInt("UserID");
+            System.out.println(a[3]);
             rs.next();
             user5.setText(rs.getString("fullname"));
+            a[4] = rs.getInt("UserID");
+            System.out.println(a[4]);
             rs.next();
             user6.setText(rs.getString("fullname"));
+            a[5] = rs.getInt("UserID");
+            System.out.println(a[5]);
             rs.next();
             user7.setText(rs.getString("fullname"));
+            a[6] = rs.getInt("UserID");
+            System.out.println(a[6]);
             rs.next();
             user8.setText(rs.getString("fullname"));
+            a[7] = rs.getInt("UserID");
+            System.out.println(a[7]);
 
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        try{
-            rs= st.executeQuery(query1);
+        try {
+            rs = st.executeQuery(query1);
             rs.next();
             Double S_money = rs.getDouble(1);
             Double M_Quan = rs.getDouble(2);
             Double A_Cost = rs.getDouble(3);
-            int M_c =rs.getInt(4);
-            
+            int M_c = rs.getInt(4)-1;
+
             T_Amount.setText(Double.toString(S_money));
             T_Meal.setText(Double.toString((M_Quan)));
             T_Add.setText(Double.toString(A_Cost));
             T_member.setText(Integer.toString(M_c));
-            
-        }
-        catch(Exception e)
-        {
+
+        } catch (Exception e) {
             System.out.println("");
         }
-        
+
     }
 
     /**
@@ -548,17 +563,13 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         TNetCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TNetCost.setText("Total Net Cost");
 
-        MealQuanValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MealQuanValue.setText("00.00");
 
-        Send_moneyValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Send_moneyValue.setText("00.00");
 
-        MealCostValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MealCostValue.setText("00.00");
 
         Net_amountValue.setBackground(new java.awt.Color(0, 153, 255));
-        Net_amountValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Net_amountValue.setText("00.00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -574,7 +585,7 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
                     .addComponent(GivenCost))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(MealCostValue, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -606,7 +617,7 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TMealCost)
                     .addComponent(MealCostValue))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TNetCost)
                     .addComponent(Net_amountValue))
@@ -1050,14 +1061,8 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         String query = "SELECT Send_money, Net_amount, MealQuan, MealCost FROM userinfo WHERE UserID = 1";
 
         try {
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
-
-            rs.next();
-            MQuan.setText(rs.getString("Send_money"));
-            GivenCost.setText(rs.getString("Send_money"));
-            TMealCost.setText(rs.getString("Send_money"));
-            TNetCost.setText(rs.getString("Send_money"));
+                Member_Print m=  new Member_Print(a[0]);
+                m.setVisible(true);
 
         } catch (Exception ex) {
             System.out.println(ex);
