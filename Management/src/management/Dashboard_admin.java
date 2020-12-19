@@ -413,6 +413,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user7.setText("No Member");
         user7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user7MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user7MouseEntered(evt);
             }
@@ -424,6 +427,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user8.setText("No Member");
         user8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user8MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user8MouseEntered(evt);
             }
@@ -435,6 +441,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user4.setText("No Member");
         user4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user4MouseEntered(evt);
             }
@@ -446,6 +455,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user5.setText("No Member");
         user5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user5MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user5MouseEntered(evt);
             }
@@ -471,6 +483,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user2.setText("No Member");
         user2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user2MouseEntered(evt);
             }
@@ -482,6 +497,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user3.setText("No Member");
         user3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user3MouseEntered(evt);
             }
@@ -493,6 +511,9 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         user6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         user6.setText("No Member");
         user6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user6MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 user6MouseEntered(evt);
             }
@@ -1084,6 +1105,48 @@ public class Dashboard_admin extends javax.swing.JFrame implements frame {
         //        aboutBox.setBackground(new Color(255, 255, 255));
         // fina.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_Home_Mate1MouseExited
+
+    private void user4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user4MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[3]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user4MouseClicked
+
+    private void user2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user2MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[1]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user2MouseClicked
+
+    private void user3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user3MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[2]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user3MouseClicked
+
+    private void user6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user6MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[5]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user6MouseClicked
+
+    private void user8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user8MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[7]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user8MouseClicked
+
+    private void user7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user7MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[6]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user7MouseClicked
+
+    private void user5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user5MouseClicked
+        // TODO add your handling code here:
+          Member_Print m=  new Member_Print(a[4]);
+                m.setVisible(true);
+    }//GEN-LAST:event_user5MouseClicked
 
     /**
      * @param args the command line arguments

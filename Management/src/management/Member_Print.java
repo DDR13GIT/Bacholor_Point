@@ -100,7 +100,7 @@ public class Member_Print extends javax.swing.JFrame {
            }
            else 
            {
-                pay1.setText("You will get back " + Double.toString(total));
+                pay1.setText("You will get back     " + Double.toString(total));
            }
             
            
@@ -148,6 +148,8 @@ public class Member_Print extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        Pay.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel1.setText("Name:");
@@ -216,11 +218,12 @@ public class Member_Print extends javax.swing.JFrame {
                             .addComponent(T_M_Cost)))
                     .addGroup(PayLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PayLayout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(pay1)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PayLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pay1)
+                .addGap(343, 343, 343))
         );
         PayLayout.setVerticalGroup(
             PayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,14 +254,24 @@ public class Member_Print extends javax.swing.JFrame {
                     .addComponent(A_P_Cost))
                 .addGap(21, 21, 21)
                 .addComponent(jLabel10)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(pay1)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         Back.setText("Back");
+        Back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackMouseClicked(evt);
+            }
+        });
 
         print.setText("Print");
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -299,6 +312,20 @@ public class Member_Print extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
+        // TODO add your handling code here:
+        
+        Dashboard_admin d = new Dashboard_admin();
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackMouseClicked
+
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+        // TODO add your handling code here: 
+        print p = new print();
+        p.printRecord(Pay);
+    }//GEN-LAST:event_printActionPerformed
 
     /**
      * @param args the command line arguments
